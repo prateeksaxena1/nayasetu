@@ -1,0 +1,25 @@
+import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import LanguageToggle from '../UI/LanguageToggle';
+import ChatBot from '../Chat/ChatBot';
+
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Header />
+      <LanguageToggle />
+      <main className="flex-grow">
+        {children}
+      </main>
+      <Footer />
+      <ChatBot />
+    </div>
+  );
+};
+
+export default Layout;

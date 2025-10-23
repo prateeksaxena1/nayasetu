@@ -1,0 +1,28 @@
+export const translations = {
+  en: {
+    hero: {
+      title: 'Expert Legal Solutions\nFor Complex Challenges',
+      subtitle: 'We provide sophisticated legal counsel to businesses and organizations navigating today\'s complex regulatory environment.',
+      consultation: 'Schedule a Consultation',
+      explore: 'Explore Our Expertise'
+    },
+    practiceAreas: {
+      title: 'Our Practice Areas',
+      subtitle: 'We provide comprehensive legal services across a range of specialized practice areas.'
+    },
+    // Add more translations as needed
+  },
+  hi: {
+    hero: {
+      title: 'जटिल चुनौतियों के लिए\nविशेषज्ञ कानूनी समाधान',
+      subtitle: 'हम आज के जटिल नियामक वातावरण में व्यवसायों और संगठनों को परिष्कृत कानूनी सलाह प्रदान करते हैं।',
+      consultation: 'परामर्श शेड्यूल करें',
+      explore: 'हमारी विशेषज्ञता जानें'
+    },
+    practiceAreas: {
+      title: 'हमारे अभ्यास क्षेत्र',
+      subtitle: 'हम विशेष अभ्यास क्षेत्रों की एक श्रृंखला में व्यापक कानूनी सेवाएं प्रदान करते हैं।'
+    }
+    // Add more translations as needed
+  }
+};
