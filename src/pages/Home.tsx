@@ -17,6 +17,8 @@ import { team } from '../data/team';
 import { practiceAreas } from '../data/practiceAreas';
 import { Briefcase, Lightbulb, Leaf, Users, Globe, ArrowRight, Award, ChevronDown } from 'lucide-react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
+import FadeIn from '../components/Animations/FadeIn';
+import StaggerChildren, { StaggerItem } from '../components/Animations/StaggerChildren';
 
 const getIconComponent = (iconName: string) => {
   switch (iconName) {
@@ -41,7 +43,7 @@ const Home: React.FC = () => {
   const [showInheritanceLawModal, setShowInheritanceLawModal] = useState(false);
   const [showIntellectualPropertyModal, setShowIntellectualPropertyModal] = useState(false);
   const [showHinduSuccessionModal, setShowHinduSuccessionModal] = useState(false);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -62,13 +64,13 @@ const Home: React.FC = () => {
     { label: 'Inheritance Disputes Resolved', value: '100+' },
     { label: 'Landmark Judgments', value: '15+' },
   ];
-  
+
   return (
     <div>
       {showConsultationForm && (
         <ConsultationForm onClose={() => setShowConsultationForm(false)} />
       )}
-      
+
       {showInheritanceLawModal && (
         <InheritanceLawModal onClose={() => setShowInheritanceLawModal(false)} />
       )}
@@ -80,42 +82,50 @@ const Home: React.FC = () => {
       {showHinduSuccessionModal && (
         <HinduSuccessionModal onClose={() => setShowHinduSuccessionModal(false)} />
       )}
-      
+
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ 
-            backgroundImage: 'url(https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg)', 
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: 'url(https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg)',
             filter: 'brightness(0.4)'
           }}
         ></div>
         <div className="relative container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
-            {t('hero.title')}
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
-            {t('hero.subtitle')}
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              size="large"
-              onClick={() => setShowConsultationForm(true)}
-            >
-              {t('hero.consultation')}
-            </Button>
-            <Button 
-              variant="outlined" 
-              size="large" 
-              className="border-white text-white hover:bg-white hover:text-indigo-900"
-              onClick={() => {
-                const expertiseSection = document.getElementById('track-record');
-                expertiseSection?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              {t('hero.explore')}
-            </Button>
-          </div>
+          <FadeIn direction="down" duration={0.8}>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
+              {t('hero.title')}
+            </h1>
+          </FadeIn>
+
+          <FadeIn direction="up" delay={0.2} duration={0.8}>
+            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+              {t('hero.subtitle')}
+            </p>
+          </FadeIn>
+
+          <FadeIn direction="up" delay={0.4} duration={0.6}>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button
+                size="large"
+                onClick={() => setShowConsultationForm(true)}
+              >
+                {t('hero.consultation')}
+              </Button>
+              <Button
+                variant="outlined"
+                size="large"
+                className="border-white text-white hover:bg-white hover:text-nayaysetu"
+                onClick={() => {
+                  const expertiseSection = document.getElementById('track-record');
+                  expertiseSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
+              >
+                {t('hero.explore')}
+              </Button>
+            </div>
+          </FadeIn>
         </div>
         <div className="absolute bottom-10 left-0 right-0 flex justify-center">
           <div className="animate-bounce">
@@ -136,46 +146,48 @@ const Home: React.FC = () => {
 
           <div className="md:flex items-center justify-between max-w-5xl mx-auto">
             <div className="md:w-1/2 mb-8 md:mb-0">
-              <div className="h-[300px]">
-                <ResponsiveContainer width="100%" height="100%">
-                  <PieChart>
-                    <Pie
-                      data={caseData}
-                      cx="50%"
-                      cy="50%"
-                      innerRadius={60}
-                      outerRadius={100}
-                      paddingAngle={5}
-                      dataKey="value"
-                    >
-                      {caseData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.color} />
-                      ))}
-                    </Pie>
-                    <Legend
-                      verticalAlign="bottom"
-                      height={36}
-                      formatter={(value) => <span className="text-sm text-gray-700">{value}</span>}
-                    />
-                  </PieChart>
-                </ResponsiveContainer>
-              </div>
+              <FadeIn direction="left" delay={0.2}>
+                <div className="h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <PieChart>
+                      <Pie
+                        data={caseData}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={60}
+                        outerRadius={100}
+                        paddingAngle={5}
+                        dataKey="value"
+                      >
+                        {caseData.map((entry, index) => (
+                          <Cell key={`cell-${index}`} fill={entry.color} />
+                        ))}
+                      </Pie>
+                      <Legend
+                        verticalAlign="bottom"
+                        height={36}
+                        formatter={(value) => <span className="text-sm text-gray-700">{value}</span>}
+                      />
+                    </PieChart>
+                  </ResponsiveContainer>
+                </div>
+              </FadeIn>
             </div>
 
             <div className="md:w-1/2 md:pl-8">
-              <div className="grid grid-cols-2 gap-6">
+              <StaggerChildren className="grid grid-cols-2 gap-6" staggerDelay={0.1}>
                 {stats.map((stat, index) => (
-                  <div key={index} className="bg-gray-50 p-6 rounded-lg text-center">
-                    <div className="text-3xl font-bold text-indigo-800 mb-2">{stat.value}</div>
+                  <StaggerItem key={index} className="bg-gray-50 p-6 rounded-lg text-center">
+                    <div className="text-3xl font-bold text-nayaysetu mb-2">{stat.value}</div>
                     <div className="text-sm text-gray-600">{stat.label}</div>
-                  </div>
+                  </StaggerItem>
                 ))}
-              </div>
-              <div className="mt-8 text-center">
+              </StaggerChildren>
+              <FadeIn direction="up" delay={0.4} className="mt-8 text-center">
                 <Button onClick={() => setShowConsultationForm(true)}>
                   Book a Free Consultation
                 </Button>
-              </div>
+              </FadeIn>
             </div>
           </div>
         </div>
@@ -190,12 +202,12 @@ const Home: React.FC = () => {
               {t('practiceAreas.subtitle')}
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {practiceAreas.slice(0, 6).map(area => (
-              <div key={area.id} className="bg-white rounded-lg shadow-md p-8 transition duration-300 hover:shadow-lg">
+              <StaggerItem key={area.id} className="bg-white rounded-lg shadow-md p-8 transition duration-300 hover:shadow-lg">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-indigo-100 text-indigo-800">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-nayaysetu/10 text-nayaysetu">
                     {getIconComponent(area.icon)}
                   </div>
                   <h3 className="text-xl font-semibold ml-4 text-gray-900">{area.title}</h3>
@@ -204,7 +216,7 @@ const Home: React.FC = () => {
                 <ul className="mb-4">
                   {area.services.slice(0, 3).map((service, idx) => (
                     <li key={idx} className="flex items-center text-gray-700 mb-2">
-                      <svg className="w-4 h-4 mr-2 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <svg className="w-4 h-4 mr-2 text-nayaysetu-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
                       {service}
@@ -214,7 +226,7 @@ const Home: React.FC = () => {
                 {area.title === "Inheritance Law" ? (
                   <button
                     onClick={() => setShowInheritanceLawModal(true)}
-                    className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600"
+                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
@@ -222,7 +234,7 @@ const Home: React.FC = () => {
                 ) : area.title === "Intellectual Property" ? (
                   <button
                     onClick={() => setShowIntellectualPropertyModal(true)}
-                    className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600"
+                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
@@ -230,207 +242,221 @@ const Home: React.FC = () => {
                 ) : area.title === "Hindu Succession Law" ? (
                   <button
                     onClick={() => setShowHinduSuccessionModal(true)}
-                    className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600"
+                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </button>
                 ) : (
-                  <Link 
+                  <Link
                     to={`/practice-areas/${area.id}`}
-                    className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600"
+                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 )}
-              </div>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* Case Studies */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
-            <div>
+            <FadeIn fullWidth>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Case Studies</h2>
               <p className="text-xl text-gray-600 max-w-2xl">
                 Explore some case studies and get to know how they overcome these challenges.
               </p>
-            </div>
-            <Link 
-              to="/case-studies"
-              className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600 mt-4 md:mt-0"
-            >
-              View All Case Studies
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+            </FadeIn>
+            <FadeIn direction="left" delay={0.2}>
+              <Link
+                to="/case-studies"
+                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+              >
+                View All Case Studies
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </FadeIn>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredCaseStudies.map(caseStudy => (
-              <CaseStudyCard key={caseStudy.id} caseStudy={caseStudy} />
+              <StaggerItem key={caseStudy.id}>
+                <CaseStudyCard caseStudy={caseStudy} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* Why Choose Us */}
-      <section className="py-20 bg-indigo-900 text-white">
+      <section className="py-20 bg-nayaysetu text-white">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <FadeIn direction="down" className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Why Choose Pursuit Legal</h2>
-            <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
               Our commitment to excellence, client service, and results sets us apart.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center p-6 rounded-lg bg-indigo-800 bg-opacity-50">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-amber-500 text-white">
+          </FadeIn>
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <Award className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Expertise</h3>
-              <p className="text-indigo-100">
+              <p className="text-gray-200">
                 Our attorneys bring decades of experience and specialized knowledge to every case.
               </p>
-            </div>
-            
-            <div className="text-center p-6 rounded-lg bg-indigo-800 bg-opacity-50">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-amber-500 text-white">
+            </StaggerItem>
+
+            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Client Focus</h3>
-              <p className="text-indigo-100">
+              <p className="text-gray-200">
                 We prioritize understanding your business objectives and tailoring our approach accordingly.
               </p>
-            </div>
-            
-            <div className="text-center p-6 rounded-lg bg-indigo-800 bg-opacity-50">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-amber-500 text-white">
+            </StaggerItem>
+
+            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Strategic Thinking</h3>
-              <p className="text-indigo-100">
+              <p className="text-gray-200">
                 We develop innovative strategies that address immediate needs while positioning you for long-term success.
               </p>
-            </div>
-            
-            <div className="text-center p-6 rounded-lg bg-indigo-800 bg-opacity-50">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-amber-500 text-white">
+            </StaggerItem>
+
+            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                 </svg>
               </div>
               <h3 className="text-xl font-semibold mb-2">Collaborative Approach</h3>
-              <p className="text-indigo-100">
+              <p className="text-gray-200">
                 We work as an extension of your team, ensuring seamless communication and aligned objectives.
               </p>
-            </div>
-          </div>
+            </StaggerItem>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* Testimonials */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <FadeIn direction="up" className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Read what our clients have to say about their experience working with our team.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          </FadeIn>
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map(testimonial => (
-              <TestimonialCard key={testimonial.id} testimonial={testimonial} />
+              <StaggerItem key={testimonial.id}>
+                <TestimonialCard testimonial={testimonial} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* Team */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
-            <div>
+            <FadeIn fullWidth>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Legal Team</h2>
               <p className="text-xl text-gray-600 max-w-2xl">
                 Our attorneys bring decades of experience across a wide range of practice areas.
               </p>
-            </div>
-            <Link 
-              to="/team"
-              className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600 mt-4 md:mt-0"
-            >
-              View All Team Members
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+            </FadeIn>
+            <FadeIn direction="left" delay={0.2}>
+              <Link
+                to="/team"
+                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+              >
+                View All Team Members
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </FadeIn>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredTeamMembers.map(member => (
-              <TeamMemberCard key={member.id} member={member} />
+              <StaggerItem key={member.id}>
+                <TeamMemberCard member={member} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* Resources */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
-            <div>
+            <FadeIn fullWidth>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Legal Resources</h2>
               <p className="text-xl text-gray-600 max-w-2xl">
                 Access guides, articles, and templates to help you navigate legal challenges.
               </p>
-            </div>
-            <Link 
-              to="/resources"
-              className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600 mt-4 md:mt-0"
-            >
-              View All Resources
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
+            </FadeIn>
+            <FadeIn direction="left" delay={0.2}>
+              <Link
+                to="/resources"
+                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+              >
+                View All Resources
+                <ArrowRight className="w-4 h-4 ml-1" />
+              </Link>
+            </FadeIn>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredResources.map(resource => (
-              <ResourceCard key={resource.id} resource={resource} />
+              <StaggerItem key={resource.id}>
+                <ResourceCard resource={resource} />
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
-      
+
       {/* CTA Section */}
-      <section className="py-20 bg-indigo-800 text-white">
-        <div className="container mx-auto px-4 text-center">
+      <section className="py-20 bg-nayaysetu text-white">
+        <FadeIn direction="up" className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Discuss Your Legal Needs?</h2>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
             Schedule a consultation with our team to explore how we can help you navigate your legal challenges.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Button 
-              variant="secondary" 
+            <Button
+              variant="secondary"
               size="large"
               onClick={() => setShowConsultationForm(true)}
             >
               Schedule a Consultation
             </Button>
             <Link to="/contact">
-              <Button variant="outlined" size="large" className="border-white text-white hover:bg-white hover:text-indigo-800">
+              <Button variant="outlined" size="large" className="border-white text-white hover:bg-white hover:text-nayaysetu">
                 Contact Us
               </Button>
             </Link>
           </div>
-        </div>
+        </FadeIn>
       </section>
     </div>
   );

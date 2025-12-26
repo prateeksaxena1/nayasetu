@@ -9,9 +9,9 @@ const Footer: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center mb-6">
-              <img 
-                src="https://i.pinimg.com/736x/07/06/6c/07066c676a89eea0b5cd460a7d314000.jpg" 
-                alt="Nayaysetu Logo" 
+              <img
+                src="/images/logo.jpg"
+                alt="Nayaysetu Logo"
                 className="h-12 w-auto"
               />
             </div>
@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Practice Areas</h3>
             <ul className="space-y-3">
@@ -49,19 +49,9 @@ const Footer: React.FC = () => {
                   Hindu Succession Law
                 </Link>
               </li>
-              <li>
-                <Link to="/practice-areas/employment" className="text-gray-400 hover:text-white transition-colors">
-                  
-                </Link>
-              </li>
-              <li>
-                <Link to="/practice-areas/international" className="text-gray-400 hover:text-white transition-colors">
-                  
-                </Link>
-              </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Quick Links</h3>
             <ul className="space-y-3">
@@ -87,7 +77,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
-                
+
                 </Link>
               </li>
               <li>
@@ -97,7 +87,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Contact Us</h3>
             <ul className="space-y-4">
@@ -123,7 +113,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
           <p>&copy; {new Date().getFullYear()} Nayaysetu. All rights reserved.</p>
           <div className="mt-2 space-x-4">
