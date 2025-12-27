@@ -11,6 +11,9 @@ import PageTransition from './components/Animations/PageTransition';
 
 
 // Start of Selection
+import Team from './pages/Team';
+
+// Start of Selection
 const AnimatedRoutes = () => {
     const location = useLocation();
 
@@ -19,6 +22,7 @@ const AnimatedRoutes = () => {
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element={<PageTransition><Home /></PageTransition>} />
                 <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+                <Route path="/team" element={<PageTransition><Team /></PageTransition>} />
                 <Route path="/case-studies" element={<PageTransition><CaseStudies /></PageTransition>} />
                 <Route path="/case-studies/:id" element={<PageTransition><CaseStudyDetail /></PageTransition>} />
                 <Route path="/resources" element={<PageTransition><Resources /></PageTransition>} />
