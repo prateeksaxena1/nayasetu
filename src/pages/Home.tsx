@@ -135,11 +135,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* Track Record Section */}
-      <section id="track-record" className="py-20 bg-white">
+      <section id="track-record" className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Track Record of Success</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Track Record of Success</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               We take pride in our proven track record of helping clients achieve favorable outcomes.
             </p>
           </div>
@@ -177,9 +177,9 @@ const Home: React.FC = () => {
             <div className="md:w-1/2 md:pl-8">
               <StaggerChildren className="grid grid-cols-2 gap-6" staggerDelay={0.1}>
                 {stats.map((stat, index) => (
-                  <StaggerItem key={index} className="bg-gray-50 p-6 rounded-lg text-center">
-                    <div className="text-3xl font-bold text-nayaysetu mb-2">{stat.value}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                  <StaggerItem key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
+                    <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">{stat.value}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
                   </StaggerItem>
                 ))}
               </StaggerChildren>
@@ -194,28 +194,28 @@ const Home: React.FC = () => {
       </section>
 
       {/* Practice Areas */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{t('practiceAreas.title')}</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('practiceAreas.title')}</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t('practiceAreas.subtitle')}
             </p>
           </div>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {practiceAreas.slice(0, 6).map(area => (
-              <StaggerItem key={area.id} className="bg-white rounded-lg shadow-md p-8 transition duration-300 hover:shadow-lg">
+              <StaggerItem key={area.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-8 transition duration-300 hover:shadow-lg">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-nayaysetu/10 text-nayaysetu">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-nayaysetu/10 dark:bg-gray-600 text-nayaysetu dark:text-white">
                     {getIconComponent(area.icon)}
                   </div>
-                  <h3 className="text-xl font-semibold ml-4 text-gray-900">{area.title}</h3>
+                  <h3 className="text-xl font-semibold ml-4 text-gray-900 dark:text-white">{area.title}</h3>
                 </div>
-                <p className="text-gray-600 mb-6">{area.description}</p>
+                <p className="text-gray-600 dark:text-gray-300 mb-6">{area.description}</p>
                 <ul className="mb-4">
                   {area.services.slice(0, 3).map((service, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700 mb-2">
+                    <li key={idx} className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
                       <svg className="w-4 h-4 mr-2 text-nayaysetu-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                       </svg>
@@ -226,7 +226,7 @@ const Home: React.FC = () => {
                 {area.title === "Inheritance Law" ? (
                   <button
                     onClick={() => setShowInheritanceLawModal(true)}
-                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
+                    className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold"
                   >
                     Learn More
                     <ArrowRight className="w-4 h-4 ml-1" />
@@ -263,12 +263,12 @@ const Home: React.FC = () => {
       </section>
 
       {/* Case Studies */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Case Studies</h2>
-              <p className="text-xl text-gray-600 max-w-2xl">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Featured Case Studies</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
                 Explore some case studies and get to know how they overcome these challenges.
               </p>
             </FadeIn>
@@ -354,11 +354,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Client Testimonials</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Client Testimonials</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Read what our clients have to say about their experience working with our team.
             </p>
           </FadeIn>
@@ -374,19 +374,19 @@ const Home: React.FC = () => {
       </section>
 
       {/* Team */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Meet Our Legal Team</h2>
-              <p className="text-xl text-gray-600 max-w-2xl">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Legal Team</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
                 Our attorneys bring decades of experience across a wide range of practice areas.
               </p>
             </FadeIn>
             <FadeIn direction="left" delay={0.2}>
               <Link
                 to="/team"
-                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+                className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
               >
                 View All Team Members
                 <ArrowRight className="w-4 h-4 ml-1" />
@@ -405,19 +405,19 @@ const Home: React.FC = () => {
       </section>
 
       {/* Resources */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Legal Resources</h2>
-              <p className="text-xl text-gray-600 max-w-2xl">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Legal Resources</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
                 Access guides, articles, and templates to help you navigate legal challenges.
               </p>
             </FadeIn>
             <FadeIn direction="left" delay={0.2}>
               <Link
                 to="/resources"
-                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+                className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
               >
                 View All Resources
                 <ArrowRight className="w-4 h-4 ml-1" />

@@ -13,12 +13,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
   variant = 'compact'
 }) => {
   const { id, title, category, outcome, challenge, imageUrl } = caseStudy;
-  
+
   if (variant === 'compact') {
     return (
       <Card hoverEffect className="h-full flex flex-col">
-        <div 
-          className="h-48 bg-cover bg-center" 
+        <div
+          className="h-48 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
         >
           <div className="w-full h-full bg-gradient-to-t from-indigo-900/80 to-transparent flex items-end p-4">
@@ -28,12 +28,12 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
           </div>
         </div>
         <div className="p-5 flex-1 flex flex-col">
-          <div className="text-sm text-indigo-600 font-medium mb-2">{category}</div>
-          <h3 className="text-xl font-semibold mb-3 text-gray-900">{title}</h3>
-          <p className="text-gray-600 text-sm line-clamp-3 mb-4 flex-1">
+          <div className="text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-2">{category}</div>
+          <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">{title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3 mb-4 flex-1">
             {challenge}
           </p>
-          <Link 
+          <Link
             to={`/case-studies/${id}`}
             className="text-indigo-800 font-medium text-sm inline-flex items-center hover:text-indigo-600"
           >
@@ -46,27 +46,27 @@ const CaseStudyCard: React.FC<CaseStudyCardProps> = ({
       </Card>
     );
   }
-  
+
   return (
     <Card className="overflow-hidden">
       <div className="md:flex">
-        <div 
+        <div
           className="md:w-2/5 h-64 md:h-auto bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
         />
         <div className="p-6 md:w-3/5">
           <div className="flex justify-between items-start mb-4">
-            <div className="text-sm text-indigo-600 font-medium">{category}</div>
+            <div className="text-sm text-indigo-600 dark:text-indigo-400 font-medium">{category}</div>
             <span className="bg-amber-600 text-white text-xs font-semibold px-2 py-1 rounded">
               {outcome}
             </span>
           </div>
-          <h3 className="text-2xl font-semibold mb-3 text-gray-900">{title}</h3>
+          <h3 className="text-2xl font-semibold mb-3 text-gray-900 dark:text-white">{title}</h3>
           <div className="mb-6">
-            <h4 className="text-gray-800 font-medium mb-1">Challenge:</h4>
-            <p className="text-gray-600">{challenge}</p>
+            <h4 className="text-gray-800 dark:text-gray-200 font-medium mb-1">Challenge:</h4>
+            <p className="text-gray-600 dark:text-gray-300">{challenge}</p>
           </div>
-          <Link 
+          <Link
             to={`/case-studies/${id}`}
             className="text-indigo-800 font-medium inline-flex items-center hover:text-indigo-600"
           >
