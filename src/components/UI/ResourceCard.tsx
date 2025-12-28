@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+
 import Card from './Card';
 import { Resource } from '../../data/resources';
 import Button from './Button';
@@ -10,7 +10,7 @@ interface ResourceCardProps {
 }
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
-  const { id, title, category, description, type, downloadUrl, imageUrl, content } = resource;
+  const { title, category, description, type, downloadUrl, imageUrl, content } = resource;
   const [showArticle, setShowArticle] = useState(false);
 
   const getTypeIcon = () => {
@@ -48,30 +48,30 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
   return (
     <>
       <Card hoverEffect className="h-full flex flex-col">
-        <div 
-          className="h-40 bg-cover bg-center" 
+        <div
+          className="h-40 bg-cover bg-center"
           style={{ backgroundImage: `url(${imageUrl})` }}
         />
         <div className="p-5 flex-1 flex flex-col">
           <div className="flex items-center mb-2">
-            <span className="text-indigo-800 mr-2">
+            <span className="text-indigo-800 dark:text-indigo-400 mr-2">
               {getTypeIcon()}
             </span>
-            <span className="text-xs font-semibold bg-indigo-100 text-indigo-800 px-2 py-0.5 rounded">
+            <span className="text-xs font-semibold bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-0.5 rounded">
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </span>
-            <span className="ml-2 text-xs text-gray-500">{category}</span>
+            <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">{category}</span>
           </div>
-          
-          <h3 className="text-lg font-semibold mb-2 text-gray-900">{title}</h3>
-          <p className="text-gray-600 text-sm mb-4 flex-1 line-clamp-3">
+
+          <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 flex-1 line-clamp-3">
             {description}
           </p>
-          
+
           <div className="mt-auto flex flex-wrap gap-2">
             {downloadUrl && (
-              <Button 
-                variant="outlined" 
+              <Button
+                variant="outlined"
                 size="small"
                 className="text-xs"
                 onClick={() => window.open(downloadUrl, '_blank')}
@@ -83,8 +83,8 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
               </Button>
             )}
             {content && (
-              <Button 
-                variant="text" 
+              <Button
+                variant="text"
                 size="small"
                 className="text-xs"
                 onClick={() => setShowArticle(true)}
@@ -98,19 +98,19 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
 
       {showArticle && content && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
-            <div className="sticky top-0 bg-white border-b z-10">
+          <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl w-full max-w-4xl max-h-[90vh] overflow-y-auto">
+            <div className="sticky top-0 bg-white dark:bg-gray-800 border-b dark:border-gray-700 z-10">
               <div className="flex justify-between items-center p-6">
-                <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
                 <button
                   onClick={() => setShowArticle(false)}
-                  className="text-gray-500 hover:text-gray-700 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
                 >
                   <X size={24} />
                 </button>
               </div>
             </div>
-            <div className="p-6 prose prose-lg max-w-none">
+            <div className="p-6 prose prose-lg max-w-none dark:prose-invert">
               {content.split('\n\n').map((paragraph, index) => (
                 <p key={index} className="mb-4">{paragraph}</p>
               ))}

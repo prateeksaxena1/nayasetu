@@ -15,10 +15,10 @@ const Team: React.FC = () => {
             <div className="container mx-auto px-4">
                 {/* Header Section */}
                 <FadeIn direction="down" className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-nayaysetu mb-6">
+                    <h1 className="text-4xl md:text-5xl font-bold text-nayaysetu dark:text-white mb-6">
                         Meet Our Team
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
                         Our diverse team of attorneys brings decades of experience and specialized knowledge to help you navigate complex legal challenges.
                     </p>
                 </FadeIn>

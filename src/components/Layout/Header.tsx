@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Button from '../UI/Button';
+import ThemeToggle from '../UI/ThemeToggle';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,8 +96,8 @@ const Header: React.FC = () => {
                     <Link
                       to={item.link}
                       className={`font-medium transition-colors duration-300 ${isScrolled
-                          ? 'text-nayaysetu hover:text-nayaysetu-gold'
-                          : 'text-white hover:text-nayaysetu-gold'
+                        ? 'text-nayaysetu hover:text-nayaysetu-gold'
+                        : 'text-white hover:text-nayaysetu-gold'
                         } ${location.pathname === item.link ? 'border-b-2 border-nayaysetu-gold' : ''}`}
                     >
                       {item.name}
@@ -105,7 +106,8 @@ const Header: React.FC = () => {
                 </li>
               ))}
             </ul>
-            <div className="ml-8">
+            <div className="ml-8 flex items-center space-x-4">
+              <ThemeToggle />
               <Button size="small">Free Consultation</Button>
             </div>
           </nav>
@@ -166,6 +168,10 @@ const Header: React.FC = () => {
                 )}
               </li>
             ))}
+            <li className="py-2 px-4 flex justify-between items-center">
+              <span className="text-nayaysetu dark:text-gray-200">Theme</span>
+              <ThemeToggle />
+            </li>
             <li className="py-2 px-4">
               <Button className="w-full">Free Consultation</Button>
             </li>
