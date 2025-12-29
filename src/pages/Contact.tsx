@@ -6,7 +6,7 @@ const ContactPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   return (
     <div>
       {/* Hero Section */}
@@ -19,7 +19,7 @@ const ContactPage: React.FC = () => {
           </p>
         </div>
       </section>
-      
+
       {/* Contact Information and Form */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -33,13 +33,12 @@ const ContactPage: React.FC = () => {
                     <div>
                       <h3 className="font-semibold text-amber-400 mb-1">Our Office</h3>
                       <p className="text-indigo-100">
-                        JK Lakshmipat University<br />
-                        BH2 Room No. 208<br />
+                        JK Lakshmipat University,<br />
                         Jaipur, Rajasthan
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Clock className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                     <div>
@@ -47,23 +46,23 @@ const ContactPage: React.FC = () => {
                       <p className="text-indigo-100">
                         Monday - Friday: 9:00 AM - 6:00 PM<br />
                         Saturday: By appointment only<br />
-                        Sunday: For Primium Members only<br/>
+                        Sunday: For Primium Members only<br />
                         24x7 Availability on Chat Portal
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Phone className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                     <div>
                       <h3 className="font-semibold text-amber-400 mb-1">Phone</h3>
                       <p className="text-indigo-100">
-                        <a href="tel:+12125551234" className="hover:text-white">+91 93525 11727</a><br />
+                        <a href="tel:+12125551234" className="hover:text-white">+91 8302553346</a><br />
                         <a href="tel:+18005551234" className="hover:text-white">0141 243-333</a> (Toll-free)
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start">
                     <Mail className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
                     <div>
@@ -75,7 +74,7 @@ const ContactPage: React.FC = () => {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="mt-12">
                   <h3 className="font-semibold text-amber-400 mb-3">Connect With Us</h3>
                   <div className="flex space-x-4">
@@ -97,7 +96,7 @@ const ContactPage: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div className="md:w-3/5 p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Send Us a Message</h2>
                 <ContactForm />
@@ -106,23 +105,23 @@ const ContactPage: React.FC = () => {
           </div>
         </div>
       </section>
-      
+
       {/* Map Section */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Visit Our Office</h2>
           <div className="bg-gray-200 rounded-lg h-96 overflow-hidden">
             {/* Here you would typically insert a Google Maps iframe */}
-            <div className="w-full h-full flex items-center justify-center bg-gray-300">
-              <div className="text-center p-8">
-                <MapPin className="w-10 h-10 mx-auto mb-4 text-indigo-800" />
-                <h3 className="text-xl font-semibold mb-2">Interactive Map Placeholder</h3>
-                <p className="text-gray-600">
-                  JK Lakshmipat University<br />
-                  Jaipur, Rajasthan
-                </p>
-              </div>
-            </div>
+            <iframe
+              title="Locate Us"
+              src="https://maps.google.com/maps?q=JK+Lakshmipat+University,+Jaipur,+Rajasthan&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>
