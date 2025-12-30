@@ -29,7 +29,7 @@ const ChatBot: React.FC = () => {
     caseDescription: ''
   });
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const { language, t } = useLanguage();
+  const { language } = useLanguage();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -37,16 +37,16 @@ const ChatBot: React.FC = () => {
 
   useEffect(() => {
     if (isOpen && messages.length === 0) {
-      const greeting = language === 'hi' 
+      const greeting = language === 'hi'
         ? "नमस्ते! मैं न्याय सेतु का कानूनी सहायक हूं। मैं आपकी कैसे मदद कर सकता हूं?\n\n" +
-          "1. मुफ्त कानूनी परामर्श बुक करें\n" +
-          "2. वारिस कानून के बारे में जानें\n" +
-          "3. संपत्ति विवाद में सहायता प्राप्त करें"
+        "1. मुफ्त कानूनी परामर्श बुक करें\n" +
+        "2. वारिस कानून के बारे में जानें\n" +
+        "3. संपत्ति विवाद में सहायता प्राप्त करें"
         : "Welcome to Nyaya Setu Legal Assistant (These are Anonymous Chats). How can I help you today?\n\n" +
-          "1. Book a free legal consultation\n" +
-          "2. Learn about inheritance law\n" +
-          "3. Get help with property disputes";
-      
+        "1. Book a free legal consultation\n" +
+        "2. Learn about inheritance law\n" +
+        "3. Get help with property disputes";
+
       addBotMessage(greeting);
     }
     scrollToBottom();
@@ -63,22 +63,22 @@ const ChatBot: React.FC = () => {
   const handleInheritanceLawInfo = () => {
     const content = language === 'hi'
       ? "वारिस कानून के बारे में महत्वपूर्ण जानकारी:\n\n" +
-        "• हिंदू उत्तराधिकार अधिनियम, 1956\n" +
-        "• वसीयत और प्रोबेट\n" +
-        "• संपत्ति के अधिकार\n\n" +
-        "किस विषय के बारे में और जानना चाहेंगे?\n\n" +
-        "1. हिंदू उत्तराधिकार अधिनियम\n" +
-        "2. वसीयत कैसे बनाएं\n" +
-        "3. प्रमुख कोर्ट केस"
+      "• हिंदू उत्तराधिकार अधिनियम, 1956\n" +
+      "• वसीयत और प्रोबेट\n" +
+      "• संपत्ति के अधिकार\n\n" +
+      "किस विषय के बारे में और जानना चाहेंगे?\n\n" +
+      "1. हिंदू उत्तराधिकार अधिनियम\n" +
+      "2. वसीयत कैसे बनाएं\n" +
+      "3. प्रमुख कोर्ट केस"
       : "Key information about inheritance law:\n\n" +
-        "• Hindu Succession Act, 1956\n" +
-        "• Wills and Probate\n" +
-        "• Property Rights\n\n" +
-        "What would you like to learn more about?\n\n" +
-        "1. Hindu Succession Act\n" +
-        "2. How to make a will\n" +
-        "3. Landmark court cases";
-    
+      "• Hindu Succession Act, 1956\n" +
+      "• Wills and Probate\n" +
+      "• Property Rights\n\n" +
+      "What would you like to learn more about?\n\n" +
+      "1. Hindu Succession Act\n" +
+      "2. How to make a will\n" +
+      "3. Landmark court cases";
+
     addBotMessage(content);
     setCurrentStep('questions');
   };
@@ -86,14 +86,14 @@ const ChatBot: React.FC = () => {
   const handlePropertyDispute = () => {
     const content = language === 'hi'
       ? "मैं आपकी संपत्ति विवाद में मदद कर सकता हूं। कृपया निम्नलिखित में से चुनें:\n\n" +
-        "1. अपना केस साझा करें\n" +
-        "2. कानूनी सलाह प्राप्त करें\n" +
-        "3. वकील से मिलें"
+      "1. अपना केस साझा करें\n" +
+      "2. कानूनी सलाह प्राप्त करें\n" +
+      "3. वकील से मिलें"
       : "I can help you with your property dispute. Please choose from the following:\n\n" +
-        "1. Share your case\n" +
-        "2. Get legal advice\n" +
-        "3. Meet with a lawyer";
-    
+      "1. Share your case\n" +
+      "2. Get legal advice\n" +
+      "3. Meet with a lawyer";
+
     addBotMessage(content);
     setCurrentStep('caseInfo');
   };
@@ -101,32 +101,32 @@ const ChatBot: React.FC = () => {
   const handleLandmarkCases = () => {
     const content = language === 'hi'
       ? "प्रमुख सुप्रीम कोर्ट केस:\n\n" +
-        "**विनीता शर्मा बनाम राकेश शर्मा**\n" +
-        "• महिलाओं के संपत्ति अधिकारों की पुष्टि\n" +
-        "• जन्म से ही सह-उत्तराधिकारी का दर्जा\n\n" +
-        "**अरुणाचला गौंडर बनाम पोन्नुसामी**\n" +
-        "• हिंदू महिलाओं के संपत्ति अधिकार\n" +
-        "• पैतृक संपत्ति में बराबर हिस्सा\n\n" +
-        "**मुन्नी देवी बनाम राजेंद्र उर्फ लल्लू**\n" +
-        "• विधवा के अधिकारों की रक्षा\n" +
-        "• संपत्ति में जीवन भर का अधिकार"
+      "**विनीता शर्मा बनाम राकेश शर्मा**\n" +
+      "• महिलाओं के संपत्ति अधिकारों की पुष्टि\n" +
+      "• जन्म से ही सह-उत्तराधिकारी का दर्जा\n\n" +
+      "**अरुणाचला गौंडर बनाम पोन्नुसामी**\n" +
+      "• हिंदू महिलाओं के संपत्ति अधिकार\n" +
+      "• पैतृक संपत्ति में बराबर हिस्सा\n\n" +
+      "**मुन्नी देवी बनाम राजेंद्र उर्फ लल्लू**\n" +
+      "• विधवा के अधिकारों की रक्षा\n" +
+      "• संपत्ति में जीवन भर का अधिकार"
       : "Landmark Supreme Court Cases:\n\n" +
-        "**Vineeta Sharma vs Rakesh Sharma**\n" +
-        "• Confirmed women's property rights\n" +
-        "• Coparcener status by birth\n\n" +
-        "**Arunachala Gounder vs Ponnusamy**\n" +
-        "• Hindu women's property rights\n" +
-        "• Equal share in ancestral property\n\n" +
-        "**Munni Devi vs Rajendra alias Lallu**\n" +
-        "• Protection of widow's rights\n" +
-        "• Lifetime right in property";
-    
+      "**Vineeta Sharma vs Rakesh Sharma**\n" +
+      "• Confirmed women's property rights\n" +
+      "• Coparcener status by birth\n\n" +
+      "**Arunachala Gounder vs Ponnusamy**\n" +
+      "• Hindu women's property rights\n" +
+      "• Equal share in ancestral property\n\n" +
+      "**Munni Devi vs Rajendra alias Lallu**\n" +
+      "• Protection of widow's rights\n" +
+      "• Lifetime right in property";
+
     addBotMessage(content);
   };
 
   const handleInitialResponse = (response: string) => {
     addUserMessage(response);
-    
+
     switch (response) {
       case '1':
         setCurrentStep('consultation');
@@ -229,7 +229,7 @@ const ChatBot: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-nayaysetu text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-nayaysetu/90 transition-colors"
-        aria-label="Toggle chat"
+        aria-label="Open Chat Assistant"
       >
         {isOpen ? <X size={20} className="md:w-6 md:h-6" /> : <MessageSquare size={20} className="md:w-6 md:h-6" />}
       </button>
@@ -252,11 +252,10 @@ const ChatBot: React.FC = () => {
                 className={`flex ${message.type === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[85%] rounded-lg p-2.5 md:p-3 text-sm md:text-base ${
-                    message.type === 'user'
+                  className={`max-w-[85%] rounded-lg p-2.5 md:p-3 text-sm md:text-base ${message.type === 'user'
                       ? 'bg-nayaysetu text-white'
                       : 'bg-gray-100 text-gray-800'
-                  }`}
+                    }`}
                 >
                   <ReactMarkdown className="prose prose-sm md:prose-base max-w-none prose-p:leading-relaxed prose-p:my-1">
                     {message.content}

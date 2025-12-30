@@ -5,25 +5,26 @@ export const translations = {
       about: 'About',
       ourFirm: 'Our Firm',
       ourTeam: 'Our Team',
-      practiceAreas: 'Practice Areas',
+      practiceAreas: 'Services',
       caseStudies: 'Case Studies',
       resources: 'Resources',
       contact: 'Contact',
     },
     common: {
       theme: 'Theme',
+      language: 'Language',
       freeConsultation: 'Free Consultation',
       scheduleConsultation: 'Schedule a Consultation',
     },
     hero: {
-      title: 'Expert Legal Solutions\nFor Complex Challenges',
-      subtitle: 'We provide sophisticated legal counsel to businesses and organizations navigating today\'s complex regulatory environment.',
-      consultation: 'Schedule a Consultation',
-      explore: 'Explore Our Expertise'
+      title: 'Protecting Your Family\'s\nLegacy & Property Rights',
+      subtitle: 'Expert legal guidance for Inheritance, Ancestral Property Disputes, and Succession Planning in India.',
+      consultation: 'Book Consultation',
+      explore: 'Explore Services'
     },
     practiceAreas: {
       title: 'Our Practice Areas',
-      subtitle: 'We provide comprehensive legal services across a range of specialized practice areas.'
+      subtitle: 'Specialized legal services for Wills, Partition Suits, and Family Property Settlements.'
     }
   },
   hi: {
@@ -32,25 +33,26 @@ export const translations = {
       about: 'हमारे बारे में',
       ourFirm: 'हमारी फर्म',
       ourTeam: 'हमारी टीम',
-      practiceAreas: 'प्रैक्टिस एरिया',
+      practiceAreas: 'कानूनी सेवाएं',
       caseStudies: 'केस स्टडीज',
       resources: 'संसाधन',
       contact: 'संपर्क करें',
     },
     common: {
       theme: 'थीम',
+      language: 'भाषा',
       freeConsultation: 'मुफ्त परामर्श',
       scheduleConsultation: 'परामर्श शेड्यूल करें',
     },
     hero: {
-      title: 'जटिल चुनौतियों के लिए\nविशेषज्ञ कानूनी समाधान',
-      subtitle: 'हम आज के जटिल नियामक वातावरण में व्यवसायों और संगठनों को परिष्कृत कानूनी सलाह प्रदान करते हैं।',
-      consultation: 'परामर्श शेड्यूल करें',
-      explore: 'हमारी विशेषज्ञता जानें'
+      title: 'आपकी पारिवारिक विरासत\nऔर संपत्ति अधिकारों की सुरक्षा',
+      subtitle: 'विरासत, पैतृक संपत्ति विवाद और उत्तराधिकार योजना के लिए विशेषज्ञ कानूनी मार्गदर्शन।',
+      consultation: 'परामर्श बुक करें',
+      explore: 'सेवाएं देखें'
     },
     practiceAreas: {
-      title: 'हमारे अभ्यास क्षेत्र',
-      subtitle: 'हम विशेष अभ्यास क्षेत्रों की एक श्रृंखला में व्यापक कानूनी सेवाएं प्रदान करते हैं।'
+      title: 'हमारे कार्य क्षेत्र',
+      subtitle: 'वसीयत, बंटवारा और पारिवारिक संपत्ति समझौतों के लिए विशेष कानूनी सेवाएं।'
     }
   }
 };

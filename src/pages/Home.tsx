@@ -297,9 +297,9 @@ const Home: React.FC = () => {
       <section className="py-20 bg-nayaysetu text-white">
         <div className="container mx-auto px-4">
           <FadeIn direction="down" className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Pursuit Legal</h2>
+            <h2 className="text-3xl font-bold mb-4">Why Choose Nayaysetu</h2>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              Our commitment to excellence, client service, and results sets us apart.
+              We understand that property disputes are not just legal battles—they are family matters. We handle them with expertise and empathy.
             </p>
           </FadeIn>
 
@@ -308,45 +308,43 @@ const Home: React.FC = () => {
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <Award className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Expertise</h3>
+              <h3 className="text-xl font-semibold mb-2">Inheritance Specialists</h3>
               <p className="text-gray-200">
-                Our attorneys bring decades of experience and specialized knowledge to every case.
+                Unlike general firms, we focus exclusively on property and succession laws. We know every nuance of the Hindu Succession Act.
+              </p>
+            </StaggerItem>
+
+            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
+                <Users className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Family Harmony</h3>
+              <p className="text-gray-200">
+                We prioritize mediation and family settlements to resolve disputes amicably, saving you years of court battles and stress.
               </p>
             </StaggerItem>
 
             <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Client Focus</h3>
+              <h3 className="text-xl font-semibold mb-2">Clear Rights</h3>
               <p className="text-gray-200">
-                We prioritize understanding your business objectives and tailoring our approach accordingly.
+                Whether you are a daughter, widow, or NRI, we explain your legal rights in simple language so you can make informed decisions.
               </p>
             </StaggerItem>
 
             <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
               <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                 </svg>
               </div>
-              <h3 className="text-xl font-semibold mb-2">Strategic Thinking</h3>
+              <h3 className="text-xl font-semibold mb-2">Time-Efficient</h3>
               <p className="text-gray-200">
-                We develop innovative strategies that address immediate needs while positioning you for long-term success.
-              </p>
-            </StaggerItem>
-
-            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Collaborative Approach</h3>
-              <p className="text-gray-200">
-                We work as an extension of your team, ensuring seamless communication and aligned objectives.
+                Property cases can drag on for decades. Our strategic approach is designed to reach a conclusion—settlement or decree—faster.
               </p>
             </StaggerItem>
           </StaggerChildren>
@@ -380,7 +378,7 @@ const Home: React.FC = () => {
             <FadeIn fullWidth>
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Legal Team</h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
-                Our attorneys bring decades of experience across a wide range of practice areas.
+                Our attorneys bring decades of focused experience in inheritance, ancestral property, and family property disputes in India.
               </p>
             </FadeIn>
             <FadeIn direction="left" delay={0.2}>

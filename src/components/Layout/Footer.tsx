@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
               />
             </div>
             <p className="text-gray-400 mb-6">
-              Providing exceptional legal services with integrity, expertise, and a commitment to client success.
+              Dedicated to protecting your family's legacy and securing your property rights through expert legal counsel.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -35,17 +35,17 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Practice Areas</h3>
             <ul className="space-y-3">
               <li>
-                <Link to="/practice-areas/corporate" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/practice-areas/pa1" className="text-gray-400 hover:text-white transition-colors">
                   Inheritance Law
                 </Link>
               </li>
               <li>
-                <Link to="/practice-areas/ip" className="text-gray-400 hover:text-white transition-colors">
-                  Intellectual Property
+                <Link to="/practice-areas/pa2" className="text-gray-400 hover:text-white transition-colors">
+                  Ancestral Property Disputes
                 </Link>
               </li>
               <li>
-                <Link to="/practice-areas/environmental" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/practice-areas/pa3" className="text-gray-400 hover:text-white transition-colors">
                   Hindu Succession Law
                 </Link>
               </li>
@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
               </li>
               <li>
                 <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
-
+                  Blog
                 </Link>
               </li>
               <li>
@@ -100,7 +100,7 @@ const Footer: React.FC = () => {
               </li>
               <li className="flex items-center">
                 <Phone size={20} className="text-nayaysetu-gold mr-3 flex-shrink-0" />
-                <a href="tel:+12125551234" className="text-gray-400 hover:text-white transition-colors">
+                <a href="tel:+918302553346" className="text-gray-400 hover:text-white transition-colors">
                   +91 8302553346 (24x7 Availability)
                 </a>
               </li>
