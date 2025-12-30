@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import Card from './Card';
 import { Testimonial } from '../../data/testimonials';
@@ -23,7 +25,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
             <div className="mr-4">
               <img
                 src={imageUrl}
-                alt={client}
+                alt="Client"
                 className="w-12 h-12 rounded-full object-cover"
               />
             </div>
