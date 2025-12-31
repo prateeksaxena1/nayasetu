@@ -16,7 +16,6 @@ import { resources } from '../data/resources';
 import { team } from '../data/team';
 import { practiceAreas } from '../data/practiceAreas';
 import { Briefcase, Lightbulb, Leaf, Users, Globe, ArrowRight, Award, ChevronDown } from 'lucide-react';
-import { PieChart, Pie, Cell, ResponsiveContainer, Legend } from 'recharts';
 import FadeIn from '../components/Animations/FadeIn';
 import StaggerChildren, { StaggerItem } from '../components/Animations/StaggerChildren';
 
@@ -52,18 +51,7 @@ const Home: React.FC = () => {
   const featuredResources = resources.filter(r => r.featured);
   const featuredTeamMembers = team.filter(t => t.featured);
 
-  const caseData = [
-    { name: 'Successful Cases', value: 93, color: '#22c55e' },
-    { name: 'Ongoing Cases', value: 5, color: '#eab308' },
-    { name: 'Unsuccessful Cases', value: 2, color: '#ef4444' },
-  ];
 
-  const stats = [
-    { label: 'Case Success Rate', value: '93%' },
-    { label: 'Clients Helped', value: '500+' },
-    { label: 'Inheritance Disputes Resolved', value: '100+' },
-    { label: 'Landmark Judgments', value: '15+' },
-  ];
 
   return (
     <div>
@@ -125,6 +113,9 @@ const Home: React.FC = () => {
                 {t('hero.explore')}
               </Button>
             </div>
+            <p className="mt-6 text-sm text-gray-300 font-medium tracking-wide">
+              {t('trust.heroDisclaimer')}
+            </p>
           </FadeIn>
         </div>
         <div className="absolute bottom-10 left-0 right-0 flex justify-center">
@@ -132,69 +123,81 @@ const Home: React.FC = () => {
             <ChevronDown className="w-6 h-6 text-white" />
           </div>
         </div>
-      </section>
+      </section >
+
+      {/* Who We Help Section */}
+      < section className="py-16 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800" >
+        <div className="container mx-auto px-4">
+          <FadeIn direction="up" className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('whoWeHelp.title')}</h2>
+          </FadeIn>
+
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="ml-3 text-center">
+                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.widows')}</p>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="ml-3 text-center">
+                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.daughters')}</p>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="ml-3 text-center">
+                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.nris')}</p>
+              </div>
+            </StaggerItem>
+            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <div className="ml-3 text-center">
+                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.farmers')}</p>
+              </div>
+            </StaggerItem>
+          </StaggerChildren>
+        </div>
+      </section >
 
       {/* Track Record Section */}
-      <section id="track-record" className="py-20 bg-white dark:bg-gray-900">
+      <section id="track-record" className="py-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Track Record of Success</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Track Record</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               We take pride in our proven track record of helping clients achieve favorable outcomes.
             </p>
           </div>
 
-          <div className="md:flex items-center justify-between max-w-5xl mx-auto">
-            <div className="md:w-1/2 mb-8 md:mb-0">
-              <FadeIn direction="left" delay={0.2}>
-                <div className="h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <PieChart>
-                      <Pie
-                        data={caseData}
-                        cx="50%"
-                        cy="50%"
-                        innerRadius={60}
-                        outerRadius={100}
-                        paddingAngle={5}
-                        dataKey="value"
-                      >
-                        {caseData.map((entry, index) => (
-                          <Cell key={`cell-${index}`} fill={entry.color} />
-                        ))}
-                      </Pie>
-                      <Legend
-                        verticalAlign="bottom"
-                        height={36}
-                        formatter={(value) => <span className="text-sm text-gray-700">{value}</span>}
-                      />
-                    </PieChart>
-                  </ResponsiveContainer>
-                </div>
-              </FadeIn>
-            </div>
+          <div className="max-w-4xl mx-auto">
+            <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.1}>
+              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">93%</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Success Rate</div>
+              </StaggerItem>
+              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">500+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Clients Helped</div>
+              </StaggerItem>
+              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">100+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Disputes Resolved</div>
+              </StaggerItem>
+              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">15+</div>
+                <div className="text-sm text-gray-600 dark:text-gray-400">Landmark Judgments</div>
+              </StaggerItem>
+            </StaggerChildren>
 
-            <div className="md:w-1/2 md:pl-8">
-              <StaggerChildren className="grid grid-cols-2 gap-6" staggerDelay={0.1}>
-                {stats.map((stat, index) => (
-                  <StaggerItem key={index} className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center">
-                    <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">{stat.value}</div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">{stat.label}</div>
-                  </StaggerItem>
-                ))}
-              </StaggerChildren>
-              <FadeIn direction="up" delay={0.4} className="mt-8 text-center">
-                <Button onClick={() => setShowConsultationForm(true)}>
-                  Book a Free Consultation
-                </Button>
-              </FadeIn>
-            </div>
+            <FadeIn direction="up" delay={0.4} className="mt-12 text-center">
+              <Button onClick={() => setShowConsultationForm(true)}>
+                Book a Free Consultation
+              </Button>
+            </FadeIn>
           </div>
         </div>
       </section>
 
       {/* Practice Areas */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('practiceAreas.title')}</h2>
@@ -212,6 +215,11 @@ const Home: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-semibold ml-4 text-gray-900 dark:text-white">{area.title}</h3>
                 </div>
+                {area.typicalClients && (
+                  <p className="text-sm font-medium text-nayaysetu-gold dark:text-yellow-500 mb-3">
+                    Typical clients: {area.typicalClients}
+                  </p>
+                )}
                 <p className="text-gray-600 dark:text-gray-300 mb-6">{area.description}</p>
                 <ul className="mb-4">
                   {area.services.slice(0, 3).map((service, idx) => (
@@ -260,10 +268,10 @@ const Home: React.FC = () => {
             ))}
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* Case Studies */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      < section className="py-20 bg-white dark:bg-gray-900" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
@@ -291,10 +299,10 @@ const Home: React.FC = () => {
             ))}
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-nayaysetu text-white">
+      < section className="py-20 bg-nayaysetu text-white" >
         <div className="container mx-auto px-4">
           <FadeIn direction="down" className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Why Choose Nayaysetu</h2>
@@ -349,10 +357,10 @@ const Home: React.FC = () => {
             </StaggerItem>
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Client Testimonials</h2>
@@ -369,10 +377,10 @@ const Home: React.FC = () => {
             ))}
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* Team */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      < section className="py-20 bg-white dark:bg-gray-900" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
@@ -400,10 +408,10 @@ const Home: React.FC = () => {
             ))}
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* Resources */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
@@ -431,10 +439,10 @@ const Home: React.FC = () => {
             ))}
           </StaggerChildren>
         </div>
-      </section>
+      </section >
 
       {/* CTA Section */}
-      <section className="py-20 bg-nayaysetu text-white">
+      < section className="py-20 bg-nayaysetu text-white" >
         <FadeIn direction="up" className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Ready to Discuss Your Legal Needs?</h2>
           <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
@@ -454,9 +462,12 @@ const Home: React.FC = () => {
               </Button>
             </Link>
           </div>
+          <p className="mt-6 text-sm text-nayaysetu-gold/80">
+            {t('trust.ctaDisclaimer')}
+          </p>
         </FadeIn>
-      </section>
-    </div>
+      </section >
+    </div >
   );
 };
 
