@@ -5,6 +5,7 @@ export interface PracticeArea {
   icon: string;
   services: string[];
   imageUrl: string;
+  typicalClients?: string;
 }
 
 export const practiceAreas: PracticeArea[] = [
@@ -21,7 +22,8 @@ export const practiceAreas: PracticeArea[] = [
       "Legal Heir Certificates",
       "Family Settlement Deeds"
     ],
-    imageUrl: "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg"
+    imageUrl: "https://images.pexels.com/photos/3183183/pexels-photo-3183183.jpeg",
+    typicalClients: "Daughters, Widows, Siblings"
   },
   {
     id: "pa2",
@@ -36,7 +38,8 @@ export const practiceAreas: PracticeArea[] = [
       "Mutation of Land Records",
       "Possession Recovery"
     ],
-    imageUrl: "https://images.pexels.com/photos/814544/pexels-photo-814544.jpeg"
+    imageUrl: "https://images.pexels.com/photos/814544/pexels-photo-814544.jpeg",
+    typicalClients: "Joint Families, Farmers"
   },
   {
     id: "pa3",
@@ -51,7 +54,8 @@ export const practiceAreas: PracticeArea[] = [
       "HUF Property Issues",
       "Disqualification of Heirs"
     ],
-    imageUrl: "https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg"
+    imageUrl: "https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg",
+    typicalClients: "Women, Legal Heirs"
   },
   {
     id: "pa4",
@@ -66,7 +70,8 @@ export const practiceAreas: PracticeArea[] = [
       "Power of Attorney",
       "Trust Deeds"
     ],
-    imageUrl: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg"
+    imageUrl: "https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg",
+    typicalClients: "Property Buyers, Families"
   },
   {
     id: "pa5",
@@ -81,7 +86,8 @@ export const practiceAreas: PracticeArea[] = [
       "Power of Attorney Management",
       "Repatriation of Sale Proceeds"
     ],
-    imageUrl: "https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg"
+    imageUrl: "https://images.pexels.com/photos/3769138/pexels-photo-3769138.jpeg",
+    typicalClients: "NRIs, Overseas Investors"
   },
   {
     id: "pa6",
@@ -96,6 +102,7 @@ export const practiceAreas: PracticeArea[] = [
       "Drafting MoU (Memorandum of Understanding)",
       "Counselling for Heirs"
     ],
-    imageUrl: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg"
+    imageUrl: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg",
+    typicalClients: "Disputing Relatives"
   }
 ];

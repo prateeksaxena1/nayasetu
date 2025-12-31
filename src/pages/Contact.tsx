@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import ContactForm from '../components/UI/ContactForm';
-import { MapPin, Clock, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 
 const ContactPage: React.FC = () => {
   useEffect(() => {
@@ -27,49 +27,51 @@ const ContactPage: React.FC = () => {
             <div className="md:flex">
               <div className="md:w-2/5 bg-indigo-800 text-white p-8">
                 <h2 className="text-2xl font-bold mb-6">Get In Touch</h2>
+                <p className="text-indigo-100 mb-8">
+                  Fill out the form below and our team will get back to you within 24 hours.
+                </p>
+
                 <div className="space-y-6">
                   <div className="flex items-start">
-                    <MapPin className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-amber-400 mb-1">Our Office</h3>
-                      <p className="text-indigo-100">
-                        JK Lakshmipat University,<br />
-                        Jaipur, Rajasthan
+                    <div className="w-10 h-10 rounded-full bg-indigo-700/10 flex items-center justify-center text-amber-400 mt-1">
+                      <MapPin className="w-5 h-5" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-medium text-amber-400">Our Office</h3>
+                      <p className="mt-1 text-indigo-100">
+                        JK Lakshmipat University<br />
+                        Mahapura, Ajmer Road<br />
+                        Jaipur, Rajasthan 302026
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <Clock className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-amber-400 mb-1">Business Hours</h3>
-                      <p className="text-indigo-100">
-                        Monday - Friday: 9:00 AM - 6:00 PM<br />
-                        Saturday: By appointment only<br />
-                        Sunday: For Primium Members only<br />
-                        24x7 Availability on Chat Portal
+                    <div className="w-10 h-10 rounded-full bg-indigo-700/10 flex items-center justify-center text-amber-400 mt-1">
+                      <Phone className="w-5 h-5" />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-medium text-amber-400">Phone</h3>
+                      <p className="mt-1 text-indigo-100">
+                        +91 8302553346
+                      </p>
+                      <p className="text-sm text-indigo-200 mt-1">
+                        Mon-Sat from 9am to 6pm
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start">
-                    <Phone className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-amber-400 mb-1">Phone</h3>
-                      <p className="text-indigo-100">
-                        <a href="tel:+12125551234" className="hover:text-white">+91 8302553346</a><br />
-                        <a href="tel:+18005551234" className="hover:text-white">0141 243-333</a> (Toll-free)
-                      </p>
+                    <div className="w-10 h-10 rounded-full bg-indigo-700/10 flex items-center justify-center text-amber-400 mt-1">
+                      <Mail className="w-5 h-5" />
                     </div>
-                  </div>
-
-                  <div className="flex items-start">
-                    <Mail className="w-6 h-6 mr-4 flex-shrink-0 mt-1" />
-                    <div>
-                      <h3 className="font-semibold text-amber-400 mb-1">Email</h3>
-                      <p className="text-indigo-100">
-                        <a href="mailto:info@pursuitlegal.com" className="hover:text-white">info@nayaysetu.com</a><br />
-                        <a href="mailto:inquiries@pursuitlegal.com" className="hover:text-white">inquiries@nayaysetu.com</a>
+                    <div className="ml-4">
+                      <h3 className="text-lg font-medium text-amber-400">Email</h3>
+                      <p className="mt-1 text-indigo-100">
+                        <a href="mailto:info@nayaysetu.com" className="hover:text-white">info@nayaysetu.com</a>
+                      </p>
+                      <p className="text-sm text-indigo-200 mt-1">
+                        We reply within 24 hours
                       </p>
                     </div>
                   </div>

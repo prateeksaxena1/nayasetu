@@ -7,11 +7,11 @@ const ResourcesPage: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('all');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [filteredResources, setFilteredResources] = useState(resources);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   useEffect(() => {
     setFilteredResources(
       resources.filter(resource => {
@@ -21,23 +21,23 @@ const ResourcesPage: React.FC = () => {
       })
     );
   }, [selectedType, selectedCategory]);
-  
+
   // Get unique types and categories
   const types = ['all', ...Array.from(new Set(resources.map(r => r.type)))];
   const categories = ['all', ...Array.from(new Set(resources.map(r => r.category)))];
-  
+
   return (
     <div>
       {/* Hero Section */}
       <section className="relative py-24 bg-indigo-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Legal Resources</h1>
+          <h1 className="text-4xl font-bold mb-4">Inheritance & Legal Resources</h1>
           <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
             Access guides, templates, and articles designed to help you navigate legal challenges.
           </p>
         </div>
       </section>
-      
+
       {/* Resources */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -53,11 +53,10 @@ const ResourcesPage: React.FC = () => {
                   {types.map(type => (
                     <button
                       key={type}
-                      className={`px-3 py-1 rounded-full text-sm ${
-                        selectedType === type
+                      className={`px-3 py-1 rounded-full text-sm ${selectedType === type
                           ? 'bg-indigo-800 text-white'
                           : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                      }`}
+                        }`}
                       onClick={() => setSelectedType(type)}
                     >
                       {type === 'all' ? 'All Types' : type.charAt(0).toUpperCase() + type.slice(1)}
@@ -73,11 +72,10 @@ const ResourcesPage: React.FC = () => {
                   {categories.map(category => (
                     <button
                       key={category}
-                      className={`px-3 py-1 rounded-full text-sm ${
-                        selectedCategory === category
+                      className={`px-3 py-1 rounded-full text-sm ${selectedCategory === category
                           ? 'bg-indigo-800 text-white'
                           : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
-                      }`}
+                        }`}
                       onClick={() => setSelectedCategory(category)}
                     >
                       {category === 'all' ? 'All Areas' : category}
@@ -87,7 +85,7 @@ const ResourcesPage: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Resources Newsletter */}
           <div className="bg-indigo-50 rounded-lg p-8 mb-12">
             <div className="md:flex items-center justify-between">
@@ -109,21 +107,21 @@ const ResourcesPage: React.FC = () => {
               </div>
             </div>
           </div>
-          
+
           {/* Resource Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredResources.map(resource => (
               <ResourceCard key={resource.id} resource={resource} />
             ))}
           </div>
-          
+
           {filteredResources.length === 0 && (
             <div className="text-center py-16">
               <h3 className="text-xl font-semibold mb-2">No resources found</h3>
               <p className="text-gray-600 mb-4">
                 We couldn't find any resources matching your current filters. Please try different filters.
               </p>
-              <Button 
+              <Button
                 variant="outlined"
                 onClick={() => {
                   setSelectedType('all');

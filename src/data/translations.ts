@@ -25,6 +25,17 @@ export const translations = {
     practiceAreas: {
       title: 'Our Practice Areas',
       subtitle: 'Specialized legal services for Wills, Partition Suits, and Family Property Settlements.'
+    },
+    whoWeHelp: {
+      title: 'Who We Help',
+      widows: 'Widows denied share in property',
+      daughters: 'Daughters excluded from ancestral land',
+      nris: 'NRIs worried about property back home',
+      farmers: 'Farmers facing mutation disputes',
+    },
+    trust: {
+      heroDisclaimer: 'First consultation is free and confidential.',
+      ctaDisclaimer: 'No obligation after consultation; you decide only when you are comfortable.',
     }
   },
   hi: {
@@ -53,6 +64,17 @@ export const translations = {
     practiceAreas: {
       title: 'हमारे कार्य क्षेत्र',
       subtitle: 'वसीयत, बंटवारा और पारिवारिक संपत्ति समझौतों के लिए विशेष कानूनी सेवाएं।'
+    },
+    whoWeHelp: {
+      title: 'हम किसकी मदद करते हैं',
+      widows: 'विधवाएँ जिन्हें संपत्ति में हिस्सा नहीं मिला',
+      daughters: 'बेटियाँ जिन्हें पैतृक जमीन से बेदखल किया गया',
+      nris: 'प्रवासी भारतीय जो अपनी संपत्ति के लिए चिंतित हैं',
+      farmers: 'किसान जो नामांतरण विवादों का सामना कर रहे हैं',
+    },
+    trust: {
+      heroDisclaimer: 'पहला परामर्श मुफ्त और गोपनीय है।',
+      ctaDisclaimer: 'परामर्श के बाद कोई बाध्यता नहीं; आप तभी निर्णय लें जब आप सहज हों।',
     }
   }
 };
