@@ -54,7 +54,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'}`}>
+      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
@@ -103,9 +103,9 @@ const Header: React.FC = () => {
                       <Link
                         to={item.link}
                         className={`font-medium transition-colors duration-300 ${isScrolled
-                          ? 'text-nayaysetu hover:text-nayaysetu-gold'
-                          : 'text-white hover:text-nayaysetu-gold'
-                          } ${location.pathname === item.link ? 'border-b-2 border-nayaysetu-gold' : ''}`}
+                            ? 'text-nayaysetu hover:text-nayaysetu-gold'
+                            : 'text-white hover:text-nayaysetu-gold'
+                          } ${location.pathname === item.link ? 'text-nayaysetu-gold font-semibold' : ''}`}
                       >
                         {item.name}
                       </Link>

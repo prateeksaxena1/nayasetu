@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CaseStudyCard from '../components/UI/CaseStudyCard';
 import { caseStudies } from '../data/caseStudies';
+import FadeIn from '../components/Animations/FadeIn';
 
 const CaseStudiesPage: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -24,14 +25,16 @@ const CaseStudiesPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-24 bg-indigo-900 text-white">
+      <section className="relative py-24 bg-nayaysetu text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Case Studies</h1>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-            Explore our case studies to see how we help families overcome complex inheritance challenges.
-          </p>
+          <FadeIn direction="down">
+            <h1 className="text-4xl font-bold mb-4">Case Studies</h1>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              Explore our case studies to see how we help families overcome complex inheritance challenges.
+            </p>
+          </FadeIn>
         </div>
-      </section >
+      </section>
 
       {/* Case Studies */}
       < section className="py-16 bg-gray-50" >

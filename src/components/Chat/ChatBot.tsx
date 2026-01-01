@@ -253,13 +253,27 @@ const ChatBot: React.FC = () => {
               >
                 <div
                   className={`max-w-[85%] rounded-lg p-2.5 md:p-3 text-sm md:text-base ${message.type === 'user'
-                      ? 'bg-nayaysetu text-white'
-                      : 'bg-gray-100 text-gray-800'
+                    ? 'bg-nayaysetu text-white'
+                    : 'bg-gray-100 text-gray-800'
                     }`}
                 >
-                  <ReactMarkdown className="prose prose-sm md:prose-base max-w-none prose-p:leading-relaxed prose-p:my-1">
+                  <ReactMarkdown className="prose prose-sm md:prose-base max-w-none prose-p:leading-relaxed prose-p:my-1 text-inherit">
                     {message.content}
                   </ReactMarkdown>
+
+                  {message.type === 'bot' && message.options && message.options.length > 0 && (
+                    <div className="mt-3 flex flex-col gap-2">
+                      {message.options.map((option, optIndex) => (
+                        <button
+                          key={optIndex}
+                          onClick={() => setInputValue((optIndex + 1).toString())}
+                          className="text-left text-xs bg-white border border-gray-300 hover:bg-gray-50 text-nayaysetu px-3 py-2 rounded transition-colors shadow-sm"
+                        >
+                          {option}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
