@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ResourceCard from '../components/UI/ResourceCard';
 import { resources } from '../data/resources';
 import Button from '../components/UI/Button';
+import FadeIn from '../components/Animations/FadeIn';
 
 const ResourcesPage: React.FC = () => {
   const [selectedType, setSelectedType] = useState<string>('all');
@@ -29,12 +30,14 @@ const ResourcesPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-24 bg-indigo-900 text-white">
+      <section className="relative py-24 bg-nayaysetu text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Inheritance & Legal Resources</h1>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-            Access guides, templates, and articles designed to help you navigate legal challenges.
-          </p>
+          <FadeIn direction="down">
+            <h1 className="text-4xl font-bold mb-4">Inheritance & Legal Resources</h1>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              Access guides, templates, and articles designed to help you navigate legal challenges.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -54,8 +57,8 @@ const ResourcesPage: React.FC = () => {
                     <button
                       key={type}
                       className={`px-3 py-1 rounded-full text-sm ${selectedType === type
-                          ? 'bg-indigo-800 text-white'
-                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                        ? 'bg-indigo-800 text-white'
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                         }`}
                       onClick={() => setSelectedType(type)}
                     >
@@ -73,8 +76,8 @@ const ResourcesPage: React.FC = () => {
                     <button
                       key={category}
                       className={`px-3 py-1 rounded-full text-sm ${selectedCategory === category
-                          ? 'bg-indigo-800 text-white'
-                          : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
+                        ? 'bg-indigo-800 text-white'
+                        : 'bg-gray-100 text-gray-800 hover:bg-gray-200'
                         }`}
                       onClick={() => setSelectedCategory(category)}
                     >

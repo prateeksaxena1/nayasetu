@@ -11,26 +11,31 @@ const Team: React.FC = () => {
     }, []);
 
     return (
-        <div className="pt-24 pb-20">
-            <div className="container mx-auto px-4">
-                {/* Header Section */}
-                <FadeIn direction="down" className="text-center mb-16">
-                    <h1 className="text-4xl md:text-5xl font-bold text-nayaysetu dark:text-white mb-6">
-                        Meet Our Team
-                    </h1>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                        Our diverse team of attorneys brings decades of experience and specialized knowledge to help you navigate complex legal challenges.
-                    </p>
-                </FadeIn>
+        <div>
+            {/* Hero Section */}
+            <section className="relative py-24 bg-nayaysetu text-white">
+                <div className="container mx-auto px-4 text-center">
+                    <FadeIn direction="down">
+                        <h1 className="text-4xl font-bold mb-4">Meet Our Team</h1>
+                        <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+                            Our diverse team of attorneys brings decades of experience and specialized knowledge to help you navigate complex legal challenges.
+                        </p>
+                    </FadeIn>
+                </div>
+            </section>
 
-                {/* Team Grid */}
-                <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {team.map((member) => (
-                        <StaggerItem key={member.id}>
-                            <TeamMemberCard member={member} />
-                        </StaggerItem>
-                    ))}
-                </StaggerChildren>
+            <div className="py-20 bg-gray-50 dark:bg-gray-900">
+                <div className="container mx-auto px-4">
+
+                    {/* Team Grid */}
+                    <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {team.map((member) => (
+                            <StaggerItem key={member.id}>
+                                <TeamMemberCard member={member} />
+                            </StaggerItem>
+                        ))}
+                    </StaggerChildren>
+                </div>
             </div>
         </div>
     );

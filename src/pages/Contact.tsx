@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import ContactForm from '../components/UI/ContactForm';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
+import FadeIn from '../components/Animations/FadeIn';
+
 const ContactPage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -10,13 +12,15 @@ const ContactPage: React.FC = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative py-24 bg-indigo-900 text-white">
+      <section className="relative py-24 bg-nayaysetu text-white">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
-          <p className="text-xl text-indigo-100 max-w-3xl mx-auto">
-            We're here to help with your legal needs. Reach out to schedule a consultation or learn more about our services.
-            (24x7 Avilability)
-          </p>
+          <FadeIn direction="down">
+            <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              We're here to help with your legal needs. Reach out to schedule a consultation or learn more about our services.
+              <span className="block mt-2 text-nayaysetu-gold text-lg font-medium">(24x7 Availability)</span>
+            </p>
+          </FadeIn>
         </div>
       </section>
 

@@ -15,26 +15,11 @@ import { testimonials } from '../data/testimonials';
 import { resources } from '../data/resources';
 import { team } from '../data/team';
 import { practiceAreas } from '../data/practiceAreas';
-import { Briefcase, Lightbulb, Leaf, Users, Globe, ArrowRight, Award, ChevronDown } from 'lucide-react';
+import { ArrowRight, Award, ChevronDown, HeartHandshake, Sprout, Plane, Users } from 'lucide-react';
 import FadeIn from '../components/Animations/FadeIn';
 import StaggerChildren, { StaggerItem } from '../components/Animations/StaggerChildren';
 
-const getIconComponent = (iconName: string) => {
-  switch (iconName) {
-    case 'Briefcase':
-      return <Briefcase className="w-6 h-6" />;
-    case 'Lightbulb':
-      return <Lightbulb className="w-6 h-6" />;
-    case 'Leaf':
-      return <Leaf className="w-6 h-6" />;
-    case 'Users':
-      return <Users className="w-6 h-6" />;
-    case 'Globe':
-      return <Globe className="w-6 h-6" />;
-    default:
-      return <Briefcase className="w-6 h-6" />;
-  }
-};
+import PracticeAreaCard from '../components/UI/PracticeAreaCard';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -51,7 +36,12 @@ const Home: React.FC = () => {
   const featuredResources = resources.filter(r => r.featured);
   const featuredTeamMembers = team.filter(t => t.featured);
 
-
+  const handleLearnMore = (title: string) => {
+    if (title === "Inheritance Law") return () => setShowInheritanceLawModal(true);
+    if (title === "Intellectual Property") return () => setShowIntellectualPropertyModal(true);
+    if (title === "Hindu Succession Law") return () => setShowHinduSuccessionModal(true);
+    return undefined;
+  };
 
   return (
     <div>
@@ -82,21 +72,22 @@ const Home: React.FC = () => {
         ></div>
         <div className="relative container mx-auto px-4 text-center">
           <FadeIn direction="down" duration={0.8}>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 leading-tight whitespace-pre-line">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight whitespace-pre-line tracking-tight">
               {t('hero.title')}
             </h1>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.2} duration={0.8}>
-            <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
               {t('hero.subtitle')}
             </p>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.4} duration={0.6}>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Button
                 size="large"
+                className="w-full sm:w-auto px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
                 onClick={() => setShowConsultationForm(true)}
               >
                 {t('hero.consultation')}
@@ -104,7 +95,7 @@ const Home: React.FC = () => {
               <Button
                 variant="outlined"
                 size="large"
-                className="border-white text-white hover:bg-white hover:text-nayaysetu"
+                className="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white hover:text-nayaysetu hover:border-white transition-all transform hover:-translate-y-1"
                 onClick={() => {
                   const expertiseSection = document.getElementById('track-record');
                   expertiseSection?.scrollIntoView({ behavior: 'smooth' });
@@ -113,45 +104,52 @@ const Home: React.FC = () => {
                 {t('hero.explore')}
               </Button>
             </div>
-            <p className="mt-6 text-sm text-gray-300 font-medium tracking-wide">
+            <p className="mt-8 text-sm text-gray-300 font-medium tracking-wider uppercase opacity-80">
               {t('trust.heroDisclaimer')}
             </p>
           </FadeIn>
         </div>
         <div className="absolute bottom-10 left-0 right-0 flex justify-center">
           <div className="animate-bounce">
-            <ChevronDown className="w-6 h-6 text-white" />
+            <ChevronDown className="w-8 h-8 text-white/50" />
           </div>
         </div>
       </section >
 
       {/* Who We Help Section */}
-      < section className="py-16 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800" >
+      <section className="py-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('whoWeHelp.title')}</h2>
           </FadeIn>
 
-          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <div className="ml-3 text-center">
-                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.widows')}</p>
+          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
+            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
+              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <HeartHandshake className="w-8 h-8" />
               </div>
+              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.widows')}</p>
             </StaggerItem>
-            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <div className="ml-3 text-center">
-                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.daughters')}</p>
+
+            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
+              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Users className="w-8 h-8" />
               </div>
+              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.daughters')}</p>
             </StaggerItem>
-            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <div className="ml-3 text-center">
-                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.nris')}</p>
+
+            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
+              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Plane className="w-8 h-8" />
               </div>
+              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.nris')}</p>
             </StaggerItem>
-            <StaggerItem className="flex items-center justify-center p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-              <div className="ml-3 text-center">
-                <p className="font-medium text-gray-800 dark:text-gray-200">{t('whoWeHelp.farmers')}</p>
+
+            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
+              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Sprout className="w-8 h-8" />
               </div>
+              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.farmers')}</p>
             </StaggerItem>
           </StaggerChildren>
         </div>
@@ -197,7 +195,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Practice Areas */}
-      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
+      <section className="py-24 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('practiceAreas.title')}</h2>
@@ -207,68 +205,20 @@ const Home: React.FC = () => {
           </div>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {practiceAreas.slice(0, 6).map(area => (
-              <StaggerItem key={area.id} className="bg-white dark:bg-gray-700 rounded-lg shadow-md p-8 transition duration-300 hover:shadow-lg">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-nayaysetu/10 dark:bg-gray-600 text-nayaysetu dark:text-white">
-                    {getIconComponent(area.icon)}
-                  </div>
-                  <h3 className="text-xl font-semibold ml-4 text-gray-900 dark:text-white">{area.title}</h3>
-                </div>
-                {area.typicalClients && (
-                  <p className="text-sm font-medium text-nayaysetu-gold dark:text-yellow-500 mb-3">
-                    Typical clients: {area.typicalClients}
-                  </p>
-                )}
-                <p className="text-gray-600 dark:text-gray-300 mb-6">{area.description}</p>
-                <ul className="mb-4">
-                  {area.services.slice(0, 3).map((service, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700 dark:text-gray-300 mb-2">
-                      <svg className="w-4 h-4 mr-2 text-nayaysetu-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                      </svg>
-                      {service}
-                    </li>
-                  ))}
-                </ul>
-                {area.title === "Inheritance Law" ? (
-                  <button
-                    onClick={() => setShowInheritanceLawModal(true)}
-                    className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </button>
-                ) : area.title === "Intellectual Property" ? (
-                  <button
-                    onClick={() => setShowIntellectualPropertyModal(true)}
-                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </button>
-                ) : area.title === "Hindu Succession Law" ? (
-                  <button
-                    onClick={() => setShowHinduSuccessionModal(true)}
-                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </button>
-                ) : (
-                  <Link
-                    to={`/practice-areas/${area.id}`}
-                    className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold"
-                  >
-                    Learn More
-                    <ArrowRight className="w-4 h-4 ml-1" />
-                  </Link>
-                )}
-              </StaggerItem>
-            ))}
+            {practiceAreas.slice(0, 6).map(area => {
+              const handleClick = handleLearnMore(area.title);
+              return (
+                <StaggerItem key={area.id}>
+                  <PracticeAreaCard
+                    area={area}
+                    onClick={handleClick}
+                  />
+                </StaggerItem>
+              );
+            })}
           </StaggerChildren>
         </div>
-      </section >
+      </section>
 
       {/* Case Studies */}
       < section className="py-20 bg-white dark:bg-gray-900" >

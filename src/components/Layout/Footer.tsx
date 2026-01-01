@@ -4,109 +4,106 @@ import { Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-nayaysetu text-white">
+    <footer className="bg-nayaysetu text-white border-t border-nayaysetu-gold/20">
       <div className="container mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          {/* Brand Column */}
           <div>
             <div className="flex items-center mb-6">
               <img
                 src="/images/logo.jpg"
                 alt="Nayaysetu Logo"
-                className="h-12 w-auto"
+                className="h-14 w-auto rounded-lg shadow-md"
               />
             </div>
-            <p className="text-gray-400 mb-6">
-              Dedicated to protecting your family's legacy and securing your property rights through expert legal counsel.
+            <p className="text-gray-300 mb-8 leading-relaxed max-w-sm">
+              Dedicated to protecting your family's legacy and securing your property rights through expert legal counsel in Jaipur and across India.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook size={20} />
+            <div className="flex space-x-5">
+              <a href="#" className="text-gray-400 hover:text-nayaysetu-gold transition-colors transform hover:scale-110 duration-200">
+                <Facebook size={22} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter size={20} />
+              <a href="#" className="text-gray-400 hover:text-nayaysetu-gold transition-colors transform hover:scale-110 duration-200">
+                <Twitter size={22} />
               </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin size={20} />
+              <a href="#" className="text-gray-400 hover:text-nayaysetu-gold transition-colors transform hover:scale-110 duration-200">
+                <Linkedin size={22} />
               </a>
             </div>
           </div>
 
+          {/* Quick Links Column */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Practice Areas</h3>
-            <ul className="space-y-3">
+            <h3 className="text-xl font-semibold mb-6 text-white border-b-2 border-nayaysetu-gold inline-block pb-1">Quick Links</h3>
+            <ul className="space-y-4">
               <li>
-                <Link to="/practice-areas/pa1" className="text-gray-400 hover:text-white transition-colors">
-                  Inheritance Law
+                <Link to="/" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
+                  Home
                 </Link>
               </li>
               <li>
-                <Link to="/practice-areas/pa2" className="text-gray-400 hover:text-white transition-colors">
-                  Ancestral Property Disputes
-                </Link>
-              </li>
-              <li>
-                <Link to="/practice-areas/pa3" className="text-gray-400 hover:text-white transition-colors">
-                  Hindu Succession Law
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Quick Links</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/about" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/about" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/team" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/team" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
                   Our Team
                 </Link>
               </li>
               <li>
-                <Link to="/case-studies" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/case-studies" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
                   Case Studies
                 </Link>
               </li>
               <li>
-                <Link to="/resources" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/resources" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
                   Resources
                 </Link>
               </li>
               <li>
-                <Link to="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-gray-400 hover:text-white transition-colors">
+                <Link to="/contact" className="text-gray-300 hover:text-nayaysetu-gold transition-colors flex items-center">
+                  <span className="w-1.5 h-1.5 bg-nayaysetu-gold rounded-full mr-2"></span>
                   Contact
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Contact Column */}
           <div>
-            <h3 className="text-lg font-semibold mb-6 text-nayaysetu-gold">Contact Us</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start">
-                <MapPin size={20} className="text-nayaysetu-gold mr-3 mt-1 flex-shrink-0" />
-                <span className="text-gray-400">
+            <h3 className="text-xl font-semibold mb-6 text-white border-b-2 border-nayaysetu-gold inline-block pb-1">Contact Us</h3>
+            <ul className="space-y-6">
+              <li className="flex items-start group">
+                <div className="bg-nayaysetu-gold/10 p-2 rounded-lg mr-4 group-hover:bg-nayaysetu-gold/20 transition-colors">
+                  <MapPin size={24} className="text-nayaysetu-gold" />
+                </div>
+                <span className="text-gray-300">
                   JK Lakshmipat University<br />
                   Jaipur, Rajasthan
                 </span>
               </li>
-              <li className="flex items-center">
-                <Phone size={20} className="text-nayaysetu-gold mr-3 flex-shrink-0" />
-                <a href="tel:+918302553346" className="text-gray-400 hover:text-white transition-colors">
-                  +91 8302553346 (24x7 Availability)
-                </a>
+              <li className="flex items-start group">
+                <div className="bg-nayaysetu-gold/10 p-2 rounded-lg mr-4 group-hover:bg-nayaysetu-gold/20 transition-colors">
+                  <Phone size={24} className="text-nayaysetu-gold" />
+                </div>
+                <div>
+                  <a href="tel:+918302553346" className="text-gray-300 hover:text-white transition-colors block font-medium">
+                    +91 8302553346
+                  </a>
+                  <span className="text-sm text-gray-500">24x7 Availability</span>
+                </div>
               </li>
-              <li className="flex items-center">
-                <Mail size={20} className="text-nayaysetu-gold mr-3 flex-shrink-0" />
-                <a href="mailto:info@nayaysetu.com" className="text-gray-400 hover:text-white transition-colors">
+              <li className="flex items-start group">
+                <div className="bg-nayaysetu-gold/10 p-2 rounded-lg mr-4 group-hover:bg-nayaysetu-gold/20 transition-colors">
+                  <Mail size={24} className="text-nayaysetu-gold" />
+                </div>
+                <a href="mailto:info@nayaysetu.com" className="text-gray-300 hover:text-white transition-colors">
                   info@nayaysetu.com
                 </a>
               </li>
@@ -114,18 +111,12 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500 text-sm">
-          <p>&copy; {new Date().getFullYear()} Nayaysetu. All rights reserved.</p>
-          <div className="mt-2 space-x-4">
-            <Link to="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link to="/terms" className="hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <Link to="/disclaimer" className="hover:text-white transition-colors">
-              Legal Disclaimer
-            </Link>
+        <div className="border-t border-gray-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-500 text-sm">
+          <p className="mb-4 md:mb-0">&copy; {new Date().getFullYear()} Nayaysetu. All rights reserved.</p>
+          <div className="flex space-x-8">
+            <Link to="/privacy" className="hover:text-nayaysetu-gold transition-colors">privacy Policy</Link>
+            <Link to="/terms" className="hover:text-nayaysetu-gold transition-colors">Terms of Service</Link>
+            <Link to="/disclaimer" className="hover:text-nayaysetu-gold transition-colors">Legal Disclaimer</Link>
           </div>
         </div>
       </div>
