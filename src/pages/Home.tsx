@@ -123,40 +123,40 @@ const Home: React.FC = () => {
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('whoWeHelp.title')}</h2>
           </FadeIn>
 
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-5xl mx-auto">
-            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
-              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <HeartHandshake className="w-8 h-8" />
+          <StaggerChildren className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto">
+            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <HeartHandshake className="w-6 h-6" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.widows')}</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.widows')}</p>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
-              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Users className="w-8 h-8" />
+            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Users className="w-6 h-6" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.daughters')}</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.daughters')}</p>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
-              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Plane className="w-8 h-8" />
+            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Plane className="w-6 h-6" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.nris')}</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.nris')}</p>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow">
-              <div className="mb-4 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Sprout className="w-8 h-8" />
+            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
+              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Sprout className="w-6 h-6" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center">{t('whoWeHelp.farmers')}</p>
+              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.farmers')}</p>
             </StaggerItem>
           </StaggerChildren>
         </div>
       </section >
 
       {/* Track Record Section */}
-      <section id="track-record" className="py-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section id="track-record" className="py-20 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Track Record</h2>
@@ -165,29 +165,29 @@ const Home: React.FC = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-5xl mx-auto">
             <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.1}>
-              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">93%</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Success Rate</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
+                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">93%</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Success Rate</div>
               </StaggerItem>
-              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">500+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Clients Helped</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
+                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">500+</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Clients Helped</div>
               </StaggerItem>
-              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">100+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Disputes Resolved</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
+                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">100+</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Disputes Resolved</div>
               </StaggerItem>
-              <StaggerItem className="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg text-center shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-3xl font-bold text-nayaysetu dark:text-white mb-2">15+</div>
-                <div className="text-sm text-gray-600 dark:text-gray-400">Landmark Judgments</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
+                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">15+</div>
+                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Landmark Judgments</div>
               </StaggerItem>
             </StaggerChildren>
 
             <FadeIn direction="up" delay={0.4} className="mt-12 text-center">
-              <Button onClick={() => setShowConsultationForm(true)}>
-                Book a Free Consultation
+              <Button onClick={() => setShowConsultationForm(true)} size="large" className="shadow-lg hover:shadow-xl">
+                Talk to a Property Lawyer
               </Button>
             </FadeIn>
           </div>
@@ -195,7 +195,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Practice Areas */}
-      <section className="py-24 bg-gray-50 dark:bg-gray-800">
+      <section className="py-24 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('practiceAreas.title')}</h2>
@@ -221,7 +221,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Case Studies */}
-      < section className="py-20 bg-white dark:bg-gray-900" >
+      < section className="py-20 bg-gray-50 dark:bg-gray-900" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
@@ -315,7 +315,7 @@ const Home: React.FC = () => {
           <FadeIn direction="up" className="text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Client Testimonials</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Read what our clients have to say about their experience working with our team.
+              Real stories from families we’ve helped with inheritance and property disputes in India.
             </p>
           </FadeIn>
 
@@ -403,6 +403,7 @@ const Home: React.FC = () => {
               variant="secondary"
               size="large"
               onClick={() => setShowConsultationForm(true)}
+              className="shadow-lg hover:shadow-xl"
             >
               Schedule a Consultation
             </Button>
