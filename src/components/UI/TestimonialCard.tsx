@@ -21,7 +21,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
 
       <div className="relative mb-6 flex-1">
         <Quote className="absolute -top-2 -left-2 w-8 h-8 text-nayaysetu/10 dark:text-gray-700 transform -scale-x-100" />
-        <p className="relative z-10 text-gray-700 dark:text-gray-300 leading-relaxed italic pl-4">
+        <p className="relative z-10 text-gray-700 dark:text-gray-300 leading-relaxed italic pl-4 text-lg">
           "{content}"
         </p>
       </div>
@@ -42,8 +42,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({ testimonial }) => {
         </div>
         <div>
           <h4 className="font-bold text-gray-900 dark:text-white text-base">{client}</h4>
-          <p className="text-sm text-gray-500 dark:text-gray-400">{position}</p>
-          <p className="text-xs text-nayaysetu dark:text-nayaysetu-gold mt-0.5">{company}</p>
+          <p className="text-sm text-gray-500 dark:text-gray-400 font-medium">{position}</p>
+          <p className="text-xs text-nayaysetu dark:text-nayaysetu-gold mt-0.5 uppercase tracking-wide opacity-80">{company}</p>
         </div>
       </div>
     </div>
