@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, Scroll, Scale, FileText, BookOpen, Clock } from 'lucide-react';
+import { X, Scroll, Scale, FileText, Clock } from 'lucide-react';
 import Button from './Button';
 
 interface InheritanceLawModalProps {
@@ -16,6 +16,7 @@ const InheritanceLawModal: React.FC<InheritanceLawModalProps> = ({ onClose }) =>
             <button
               onClick={onClose}
               className="text-gray-500 hover:text-gray-700 transition-colors"
+              aria-label="Close modal"
             >
               <X size={24} />
             </button>
@@ -32,8 +33,8 @@ const InheritanceLawModal: React.FC<InheritanceLawModalProps> = ({ onClose }) =>
               <div>
                 <h3 className="text-xl font-semibold text-indigo-900 mb-3">What is Inheritance Law?</h3>
                 <p className="text-gray-700">
-                  Inheritance law governs how a person's assets, property, and debts are transferred after death. 
-                  The process varies depending on whether the deceased left a will (testate) or not (intestate), 
+                  Inheritance law governs how a person's assets, property, and debts are transferred after death.
+                  The process varies depending on whether the deceased left a will (testate) or not (intestate),
                   and is subject to different regulations by country/state.
                 </p>
               </div>
@@ -52,7 +53,7 @@ const InheritanceLawModal: React.FC<InheritanceLawModalProps> = ({ onClose }) =>
                   <p className="text-gray-700">
                     A Will is a legal document that specifies how a person's assets should be distributed after death.
                   </p>
-                  
+
                   <div className="pl-4">
                     <h4 className="font-medium text-gray-900 mb-2">Requirements:</h4>
                     <ul className="list-disc pl-5 text-gray-700 space-y-1">
@@ -168,8 +169,8 @@ const InheritanceLawModal: React.FC<InheritanceLawModalProps> = ({ onClose }) =>
               <Button variant="secondary" onClick={onClose}>
                 Schedule Free Consultation
               </Button>
-              <Button 
-                variant="outlined" 
+              <Button
+                variant="outlined"
                 onClick={onClose}
                 className="border-white text-white hover:bg-white hover:text-indigo-900"
               >

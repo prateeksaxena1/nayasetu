@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({
   };
 
   const hoverStyles = hoverEffect
-    ? 'transition-all duration-300 hover:shadow-lg transform hover:-translate-y-1'
+    ? 'transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1 will-change-transform'
     : '';
 
   return (

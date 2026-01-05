@@ -8,6 +8,7 @@ export interface Resource {
   imageUrl: string;
   featured: boolean;
   content?: string;
+  topics: string[];
 }
 
 export const resources: Resource[] = [
@@ -19,7 +20,8 @@ export const resources: Resource[] = [
     type: "video",
     downloadUrl: "https://youtu.be/YoCyEl3kd5s?si=VioxUTEZKyt0CfY7",
     imageUrl: "https://i.pinimg.com/736x/ba/83/8e/ba838e75fdbbc06d5a9201b91e572e99.jpg",
-    featured: true
+    featured: true,
+    topics: ["No Will / Intestate", "General"]
   },
   {
     id: "r2",
@@ -29,7 +31,8 @@ export const resources: Resource[] = [
     type: "video",
     downloadUrl: "https://www.youtube.com/watch?v=_ocPjJ5FYEg",
     imageUrl: "https://i.pinimg.com/736x/a6/81/27/a6812795365734d0076b58a1fbb9f5d7.jpg",
-    featured: true
+    featured: true,
+    topics: ["Court Judgments", "Ancestral Property"]
   },
   {
     id: "r3",
@@ -39,6 +42,7 @@ export const resources: Resource[] = [
     type: "article",
     imageUrl: "https://images.pexels.com/photos/5668858/pexels-photo-5668858.jpeg",
     featured: true,
+    topics: ["Wills", "Estate Planning"],
     content: `# How to Make a Valid Will in India
 
 Creating a Will is one of the most important things you can do for your family. It ensures your assets are distributed according to your wishes and prevents future disputes.
@@ -69,7 +73,8 @@ While not mandatory, registering a Will at the Sub-Registrar's office is highly 
     type: "video",
     downloadUrl: "https://www.youtube.com/watch?v=_ocPjJ5FYEg",
     imageUrl: "https://i.pinimg.com/736x/49/3d/a1/493da18165853a00d32c8bbe71b1fe2f.jpg",
-    featured: false
+    featured: false,
+    topics: ["No Will / Intestate", "Class I Heirs"]
   },
   {
     id: "r5",
@@ -79,6 +84,7 @@ While not mandatory, registering a Will at the Sub-Registrar's office is highly 
     type: "article",
     imageUrl: "https://media.istockphoto.com/id/1186875361/photo/property-law-concept-key-from-real-estate-and-gavel.jpg",
     featured: true,
+    topics: ["Women's Rights", "Daughters"],
     content: `# The Hindu Succession Amendment Act, 2005
 
 This landmark legislation changed the landscape of women's property rights in India.
@@ -99,6 +105,7 @@ This amendment overrides conflicting customs and previous laws, ensuring gender 
     type: "article",
     imageUrl: "https://media.istockphoto.com/id/1211971898/photo/old-couple-make-agreement-sign-insurance-contract.jpg",
     featured: false,
+    topics: ["Documentation", "No Will / Intestate"],
     content: `# Legal Heir Certificate vs. Succession Certificate
 
 ## Legal Heir Certificate
@@ -112,5 +119,15 @@ This amendment overrides conflicting customs and previous laws, ensuring gender 
 - **Authority**: Issued by a Civil Court.
 
 Knowing the difference saves time and legal costs.`
+  },
+  {
+    id: "r7",
+    title: "Agricultural Land Inheritance for NRIs",
+    category: "Guide",
+    description: "Specific rules and FEMA regulations governing inheritance of farmland by NRIs.",
+    type: "guide",
+    imageUrl: "https://images.pexels.com/photos/236730/pexels-photo-236730.jpeg",
+    featured: false,
+    topics: ["NRIs", "Agricultural Land"]
   }
 ];

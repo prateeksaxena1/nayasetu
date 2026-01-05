@@ -10,7 +10,7 @@ interface ResourceCardProps {
 }
 
 const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
-  const { title, category, description, type, downloadUrl, imageUrl, content } = resource;
+  const { title, description, type, downloadUrl, imageUrl, content, topics } = resource;
   const [showArticle, setShowArticle] = useState(false);
 
   const getTypeIcon = () => {
@@ -47,20 +47,27 @@ const ResourceCard: React.FC<ResourceCardProps> = ({ resource }) => {
 
   return (
     <>
-      <Card hoverEffect className="h-full flex flex-col">
-        <div
-          className="h-40 bg-cover bg-center"
-          style={{ backgroundImage: `url(${imageUrl})` }}
-        />
+      <Card hoverEffect className="h-full flex flex-col group">
+        <div className="h-48 overflow-hidden relative bg-gray-100">
+          <img
+            src={imageUrl}
+            alt={title}
+            loading="lazy"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+          />
+          <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-300" />
+        </div>
         <div className="p-5 flex-1 flex flex-col">
-          <div className="flex items-center mb-2">
-            <span className="text-indigo-800 dark:text-indigo-400 mr-2">
-              {getTypeIcon()}
-            </span>
-            <span className="text-xs font-semibold bg-indigo-100 dark:bg-indigo-900 text-indigo-800 dark:text-indigo-200 px-2 py-0.5 rounded">
+          <div className="flex flex-wrap items-center gap-2 mb-3">
+            <span className="flex items-center text-xs font-semibold bg-indigo-50 text-indigo-700 px-2 py-1 rounded">
+              <span className="mr-1">{getTypeIcon()}</span>
               {type.charAt(0).toUpperCase() + type.slice(1)}
             </span>
-            <span className="ml-2 text-xs text-gray-500 dark:text-gray-400">{category}</span>
+            {topics?.slice(0, 2).map((topic, i) => (
+              <span key={i} className="text-xs font-medium bg-gray-100 text-gray-600 px-2 py-1 rounded">
+                {topic}
+              </span>
+            ))}
           </div>
 
           <h3 className="text-lg font-semibold mb-2 text-gray-900 dark:text-white">{title}</h3>

@@ -21,12 +21,20 @@ import StaggerChildren, { StaggerItem } from '../components/Animations/StaggerCh
 
 import PracticeAreaCard from '../components/UI/PracticeAreaCard';
 
+import { faqs, FAQ } from '../data/faqs';
+import FAQAccordion from '../components/UI/FAQAccordion';
+import TrustStrip from '../components/UI/TrustStrip';
+import ReadyToTalk from '../components/UI/ReadyToTalk';
+
 const Home: React.FC = () => {
   const { t } = useLanguage();
   const [showConsultationForm, setShowConsultationForm] = useState(false);
   const [showInheritanceLawModal, setShowInheritanceLawModal] = useState(false);
   const [showIntellectualPropertyModal, setShowIntellectualPropertyModal] = useState(false);
   const [showHinduSuccessionModal, setShowHinduSuccessionModal] = useState(false);
+
+  // Persona State for Filter
+  const [activePersona, setActivePersona] = useState<FAQ['category']>('daughter');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -116,78 +124,123 @@ const Home: React.FC = () => {
         </div>
       </section >
 
+      {/* Persona Strip - Mobile Friendly Scrollable */}
+      <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 md:relative z-30 shadow-sm md:shadow-none">
+        <div className="container mx-auto px-4 py-4 md:py-6">
+          <div className="flex flex-nowrap md:flex-wrap gap-3 overflow-x-auto pb-2 md:pb-0 md:justify-center no-scrollbar">
+            {[
+              { id: 'widow', label: 'Widow / Wife', icon: '👩' },
+              { id: 'daughter', label: 'Daughter / Sister', icon: '👧' },
+              { id: 'nri', label: 'NRI Heir', icon: '✈️' },
+              { id: 'farmer', label: 'Farmer / Land Owner', icon: '🌾' },
+            ].map((persona) => (
+              <button
+                key={persona.id}
+                onClick={() => {
+                  const faqSection = document.getElementById('common-questions');
+                  faqSection?.scrollIntoView({ behavior: 'smooth' });
+                  setActivePersona(persona.id as any);
+                }}
+                className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all whitespace-nowrap border ${activePersona === persona.id
+                  ? 'bg-nayaysetu text-white border-nayaysetu shadow-md'
+                  : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-nayaysetu hover:text-nayaysetu'
+                  }`}
+              >
+                <span className="mr-2">{persona.icon}</span>
+                {persona.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <TrustStrip />
+
       {/* Who We Help Section */}
-      <section className="py-20 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
-          <FadeIn direction="up" className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('whoWeHelp.title')}</h2>
+          <FadeIn direction="up" className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">{t('whoWeHelp.title')}</h2>
+            <div className="w-24 h-1 bg-nayaysetu-gold mx-auto rounded-full"></div>
           </FadeIn>
 
-          <StaggerChildren className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-3xl mx-auto">
-            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <HeartHandshake className="w-6 h-6" />
+          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <HeartHandshake className="w-8 h-8" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.widows')}</p>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Widows Denied Share</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Legal support for claiming rights in husbands' ancestral property.</p>
+              </div>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Users className="w-6 h-6" />
+            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Users className="w-8 h-8" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.daughters')}</p>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Married Daughters</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Securing equal coparcenary rights in father's HUF property.</p>
+              </div>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Plane className="w-6 h-6" />
+            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Plane className="w-8 h-8" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.nris')}</p>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">NRI Heirs</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Managing inheritance disputes and possession remotely.</p>
+              </div>
             </StaggerItem>
 
-            <StaggerItem className="flex flex-col items-center justify-center p-6 bg-gray-50 dark:bg-gray-800 rounded-xl hover:shadow-md transition-shadow border border-gray-100 dark:border-gray-700">
-              <div className="mb-3 p-3 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
-                <Sprout className="w-6 h-6" />
+            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+                <Sprout className="w-8 h-8" />
               </div>
-              <p className="font-semibold text-gray-900 dark:text-white text-center text-sm md:text-base">{t('whoWeHelp.farmers')}</p>
+              <div>
+                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Farmers & Landowners</h3>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">Resolving partition suits for agricultural land and revenue records.</p>
+              </div>
             </StaggerItem>
           </StaggerChildren>
         </div>
       </section >
 
       {/* Track Record Section */}
-      <section id="track-record" className="py-20 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section id="track-record" className="py-24 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Our Track Record</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              We take pride in our proven track record of helping clients achieve favorable outcomes.
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">Our Track Record</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              We take pride in our proven track record of helping clients achieve favorable outcomes through strategic legal counsel.
             </p>
           </div>
 
-          <div className="max-w-5xl mx-auto">
-            <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6" staggerDelay={0.1}>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
-                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">93%</div>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Success Rate</div>
+          <div className="max-w-6xl mx-auto">
+            <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" staggerDelay={0.1}>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">93%</div>
+                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Success Rate</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
-                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">500+</div>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Clients Helped</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">500+</div>
+                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Clients Helped</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
-                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">100+</div>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Disputes Resolved</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">100+</div>
+                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Disputes Resolved</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-md hover:shadow-lg transition-all border-b-4 border-nayaysetu">
-                <div className="text-4xl font-bold text-nayaysetu dark:text-white mb-2">15+</div>
-                <div className="text-sm font-medium text-gray-500 dark:text-gray-400 uppercase tracking-wide">Landmark Judgments</div>
+              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">15+</div>
+                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Landmark Judgments</div>
               </StaggerItem>
             </StaggerChildren>
 
-            <FadeIn direction="up" delay={0.4} className="mt-12 text-center">
-              <Button onClick={() => setShowConsultationForm(true)} size="large" className="shadow-lg hover:shadow-xl">
-                Talk to a Property Lawyer
+            <FadeIn direction="up" delay={0.4} className="text-center">
+              <Button onClick={() => setShowConsultationForm(true)} size="large" className="shadow-xl hover:shadow-2xl px-10 py-4 text-xl">
+                Book a Free Consultation
               </Button>
             </FadeIn>
           </div>
@@ -217,6 +270,45 @@ const Home: React.FC = () => {
               );
             })}
           </StaggerChildren>
+        </div>
+      </section>
+
+      {/* Common Questions (FAQ) Section */}
+      <section id="common-questions" className="py-24 bg-gray-50 dark:bg-gray-800 border-t border-gray-200">
+        <div className="container mx-auto px-4">
+          <FadeIn direction="up" className="text-center mb-12">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-nayaysetu/10 text-nayaysetu font-semibold text-sm mb-4">
+              Common Questions
+            </span>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+              Questions families often ask us
+            </h2>
+            <div className="flex flex-wrap justify-center gap-2 mb-8">
+              {['widow', 'daughter', 'nri', 'farmer'].map(cat => (
+                <button
+                  key={cat}
+                  onClick={() => setActivePersona(cat as any)}
+                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activePersona === cat
+                    ? 'bg-nayaysetu text-white'
+                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                    }`}
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </button>
+              ))}
+            </div>
+          </FadeIn>
+
+          <FadeIn direction="up" delay={0.2}>
+            <FAQAccordion faqs={faqs.filter(f => f.category === activePersona)} />
+          </FadeIn>
+
+          <div className="text-center mt-12">
+            <p className="text-gray-500 text-sm mb-4">Can't find your question?</p>
+            <Button variant="outlined" size="small" onClick={() => setShowConsultationForm(true)}>
+              Ask a Lawyer
+            </Button>
+          </div>
         </div>
       </section>
 
@@ -392,32 +484,7 @@ const Home: React.FC = () => {
       </section >
 
       {/* CTA Section */}
-      < section className="py-20 bg-nayaysetu text-white" >
-        <FadeIn direction="up" className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Discuss Your Legal Needs?</h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto mb-8">
-            Schedule a consultation with our team to explore how we can help you navigate your legal challenges.
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button
-              variant="secondary"
-              size="large"
-              onClick={() => setShowConsultationForm(true)}
-              className="shadow-lg hover:shadow-xl"
-            >
-              Schedule a Consultation
-            </Button>
-            <Link to="/contact">
-              <Button variant="outlined" size="large" className="border-white text-white hover:bg-white hover:text-nayaysetu">
-                Contact Us
-              </Button>
-            </Link>
-          </div>
-          <p className="mt-6 text-sm text-nayaysetu-gold/80">
-            {t('trust.ctaDisclaimer')}
-          </p>
-        </FadeIn>
-      </section >
+      <ReadyToTalk />
     </div >
   );
 };
