@@ -53,6 +53,7 @@ const ConsultationForm: React.FC<ConsultationFormProps> = ({ onClose }) => {
           <button
             onClick={onClose}
             className="text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 transition-colors"
+            aria-label="Close consultation form"
           >
             <X size={24} />
           </button>

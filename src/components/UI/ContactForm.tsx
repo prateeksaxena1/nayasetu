@@ -60,11 +60,11 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6 bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+    <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-lg border border-nayaysetu/5">
       {/* Required Fields */}
-      <div className="space-y-4">
+      <div className="space-y-5">
         <div>
-          <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-1">
+          <label htmlFor="name" className="block text-sm font-semibold text-gray-900 mb-1.5">
             Your full name <span className="text-red-500">*</span>
           </label>
           <input
@@ -75,12 +75,12 @@ const ContactForm: React.FC = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-shadow placeholder-gray-400"
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-1">
+          <label htmlFor="phone" className="block text-sm font-semibold text-gray-900 mb-1.5">
             Your phone number (India) <span className="text-red-500">*</span>
           </label>
           <div className="relative">
@@ -93,7 +93,7 @@ const ContactForm: React.FC = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className={`w-full pl-14 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-nayaysetu transition-shadow placeholder-gray-400 ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-300 focus:border-nayaysetu'}`}
+              className={`w-full pl-14 pr-4 py-3 border rounded-lg focus:ring-2 focus:ring-nayaysetu transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white ${errors.phone ? 'border-red-500 focus:border-red-500' : 'border-gray-200 focus:border-nayaysetu'}`}
             />
           </div>
           {errors.phone && (
@@ -105,30 +105,30 @@ const ContactForm: React.FC = () => {
         </div>
 
         <div>
-          <label htmlFor="help" className="block text-sm font-semibold text-gray-900 mb-1">
+          <label htmlFor="help" className="block text-sm font-semibold text-gray-900 mb-1.5">
             How can we help? <span className="text-red-500">*</span>
           </label>
           <textarea
             id="help"
             name="help"
-            rows={3}
+            rows={4}
             placeholder="Briefly describe your property or inheritance issue..."
             value={formData.help}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-shadow placeholder-gray-400"
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-all placeholder-gray-400 bg-gray-50/50 focus:bg-white"
           />
         </div>
       </div>
 
-      {/* Optional Fields Divider */}
-      <div className="pt-2 border-t border-gray-100">
-        <p className="text-xs text-gray-500 font-medium uppercase tracking-wide mb-4">Optional Details</p>
+      {/* Optional Fields Block */}
+      <div className="bg-gray-50/80 p-5 rounded-lg border border-gray-100">
+        <p className="text-xs text-gray-500 font-semibold uppercase tracking-wider mb-4">Optional Details</p>
 
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1 gap-5">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              Email Address (Optional)
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">
+              Email Address
             </label>
             <input
               type="email"
@@ -137,7 +137,7 @@ const ContactForm: React.FC = () => {
               placeholder="rajesh@example.com"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-shadow placeholder-gray-400 text-sm"
+              className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-nayaysetu focus:border-nayaysetu transition-all placeholder-gray-400 text-sm bg-white"
             />
           </div>
 
@@ -145,28 +145,32 @@ const ContactForm: React.FC = () => {
             <label className="block text-sm font-medium text-gray-700 mb-2">
               Preferred contact method
             </label>
-            <div className="flex space-x-4">
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="method"
-                  value="call"
-                  checked={formData.method === 'call'}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-nayaysetu focus:ring-nayaysetu"
-                />
-                <span className="text-gray-900">Phone Call</span>
+            <div className="flex space-x-5">
+              <label className="flex items-center space-x-2 cursor-pointer group">
+                <div className="relative flex items-center">
+                  <input
+                    type="radio"
+                    name="method"
+                    value="call"
+                    checked={formData.method === 'call'}
+                    onChange={handleChange}
+                    className="w-4 h-4 text-nayaysetu focus:ring-nayaysetu border-gray-300"
+                  />
+                </div>
+                <span className="text-gray-900 group-hover:text-nayaysetu transition-colors">Phone Call</span>
               </label>
-              <label className="flex items-center space-x-2 cursor-pointer">
-                <input
-                  type="radio"
-                  name="method"
-                  value="whatsapp"
-                  checked={formData.method === 'whatsapp'}
-                  onChange={handleChange}
-                  className="w-4 h-4 text-green-600 focus:ring-green-600"
-                />
-                <span className="text-gray-900">WhatsApp</span>
+              <label className="flex items-center space-x-2 cursor-pointer group">
+                <div className="relative flex items-center">
+                  <input
+                    type="radio"
+                    name="method"
+                    value="whatsapp"
+                    checked={formData.method === 'whatsapp'}
+                    onChange={handleChange}
+                    className="w-4 h-4 text-green-600 focus:ring-green-600 border-gray-300"
+                  />
+                </div>
+                <span className="text-gray-900 group-hover:text-green-700 transition-colors">WhatsApp</span>
               </label>
             </div>
             <p className="text-xs text-gray-400 mt-2">We will try this first.</p>
@@ -178,16 +182,16 @@ const ContactForm: React.FC = () => {
         <Button
           type="submit"
           disabled={status === 'submitting'}
-          className="w-full text-lg py-3 font-bold shadow-md hover:shadow-lg transition-all"
+          className="w-full text-lg py-3.5 font-bold shadow-md hover:shadow-xl transition-all transform hover:-translate-y-0.5"
         >
           {status === 'submitting' ? 'Sending Request...' : 'Request Free Legal Consultation'}
         </Button>
-        <p className="text-center text-xs text-gray-500 mt-2">
+        <p className="text-center text-xs text-gray-500 mt-3">
           We usually respond within 24 hours on working days.
         </p>
 
         {status === 'success' && (
-          <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-lg flex items-start border border-green-200">
+          <div className="mt-4 p-4 bg-green-50 text-green-800 rounded-lg flex items-start border border-green-200 animate-fade-in">
             <ShieldCheck className="w-5 h-5 mr-2 flex-shrink-0 mt-0.5" />
             <div>
               <p className="font-semibold">Request Received!</p>
@@ -196,8 +200,8 @@ const ContactForm: React.FC = () => {
           </div>
         )}
 
-        <div className="mt-4 flex items-center justify-center text-xs text-gray-400">
-          <ShieldCheck className="w-3 h-3 mr-1" />
+        <div className="mt-6 flex items-center justify-center text-xs text-gray-400 bg-gray-50 py-2 rounded-full">
+          <ShieldCheck className="w-3 h-3 mr-1.5" />
           <span>Your information is kept private and shared only with our legal team.</span>
         </div>
       </div>

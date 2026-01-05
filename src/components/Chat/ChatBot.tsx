@@ -229,7 +229,8 @@ const ChatBot: React.FC = () => {
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="bg-nayaysetu text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-nayaysetu/90 transition-colors"
-        aria-label="Open Chat Assistant"
+        aria-label={isOpen ? "Close Chat Assistant" : "Open Chat Assistant"}
+        aria-expanded={isOpen}
       >
         {isOpen ? <X size={20} className="md:w-6 md:h-6" /> : <MessageSquare size={20} className="md:w-6 md:h-6" />}
       </button>
