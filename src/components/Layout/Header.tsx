@@ -58,13 +58,13 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center gap-3">
               <img
-                src="/images/logo.jpg"
+                src="/logo.png"
                 alt="Nayaysetu Logo"
-                className="h-16 w-auto"
+                className="h-16 w-auto rounded-lg shadow-md"
               />
-              <span className={`ml-3 font-poppins font-semibold text-2xl tracking-[0.2em] ${isScrolled ? 'text-nayaysetu' : 'text-white'}`}>
+              <span className={`font-poppins font-semibold text-2xl tracking-[0.2em] ${isScrolled ? 'text-nayaysetu' : 'text-white'}`}>
                 NYAYASETU
               </span>
             </Link>
@@ -103,8 +103,8 @@ const Header: React.FC = () => {
                       <Link
                         to={item.link}
                         className={`font-medium transition-colors duration-300 ${isScrolled
-                            ? 'text-nayaysetu hover:text-nayaysetu-gold'
-                            : 'text-white hover:text-nayaysetu-gold'
+                          ? 'text-nayaysetu hover:text-nayaysetu-gold'
+                          : 'text-white hover:text-nayaysetu-gold'
                           } ${location.pathname === item.link ? 'text-nayaysetu-gold font-semibold' : ''}`}
                       >
                         {item.name}

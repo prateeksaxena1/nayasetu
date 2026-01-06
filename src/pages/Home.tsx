@@ -274,13 +274,13 @@ const Home: React.FC = () => {
       </section>
 
       {/* Common Questions (FAQ) Section */}
-      <section id="common-questions" className="py-24 bg-gray-50 dark:bg-gray-800 border-t border-gray-200">
+      <section id="common-questions" className="py-24 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-nayaysetu/10 text-nayaysetu font-semibold text-sm mb-4">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-nayaysetu/10 text-nayaysetu font-bold text-sm mb-4 tracking-wide uppercase">
               Common Questions
             </span>
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">
               Questions families often ask us
             </h2>
             <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -288,9 +288,9 @@ const Home: React.FC = () => {
                 <button
                   key={cat}
                   onClick={() => setActivePersona(cat as any)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${activePersona === cat
-                    ? 'bg-nayaysetu text-white'
-                    : 'bg-white text-gray-600 hover:bg-gray-100'
+                  className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activePersona === cat
+                    ? 'bg-nayaysetu text-white shadow-lg transform scale-105'
+                    : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-sm'
                     }`}
                 >
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -299,16 +299,39 @@ const Home: React.FC = () => {
             </div>
           </FadeIn>
 
-          <FadeIn direction="up" delay={0.2}>
+          <FadeIn direction="up" delay={0.2} className="relative z-10">
             <FAQAccordion faqs={faqs.filter(f => f.category === activePersona)} />
           </FadeIn>
 
-          <div className="text-center mt-12">
-            <p className="text-gray-500 text-sm mb-4">Can't find your question?</p>
-            <Button variant="outlined" size="small" onClick={() => setShowConsultationForm(true)}>
-              Ask a Lawyer
-            </Button>
-          </div>
+          <FadeIn direction="up" delay={0.3} className="mt-16 max-w-2xl mx-auto">
+            <div className="bg-white dark:bg-gray-700 rounded-2xl p-8 text-center shadow-xl border border-gray-100 dark:border-gray-600 relative overflow-hidden group">
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-nayaysetu to-transparent opacity-50"></div>
+
+              <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-nayaysetu/10 dark:bg-nayaysetu/20 text-nayaysetu mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                </div>
+
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  Can't find your question?
+                </h3>
+                <p className="text-gray-500 dark:text-gray-300 mb-6">
+                  Our legal experts are ready to help with your specific situation.
+                </p>
+
+                <Button
+                  variant="primary"
+                  size="medium"
+                  onClick={() => setShowConsultationForm(true)}
+                  className="shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-200"
+                >
+                  Ask a Lawyer
+                </Button>
+              </div>
+            </div>
+          </FadeIn>
         </div>
       </section>
 

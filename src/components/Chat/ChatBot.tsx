@@ -19,6 +19,7 @@ interface UserInfo {
 
 const ChatBot: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showWelcome, setShowWelcome] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputValue, setInputValue] = useState('');
   const [currentStep, setCurrentStep] = useState<'initial' | 'consultation' | 'questions' | 'userInfo' | 'caseInfo'>('initial');
@@ -36,6 +37,18 @@ const ChatBot: React.FC = () => {
   };
 
   useEffect(() => {
+    // Show welcome bubble after 3 seconds
+    const timer = setTimeout(() => {
+      if (!isOpen) setShowWelcome(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
+      setShowWelcome(false);
+    }
+
     if (isOpen && messages.length === 0) {
       const greeting = language === 'hi'
         ? "नमस्ते! मैं न्याय सेतु का कानूनी सहायक हूं। मैं आपकी कैसे मदद कर सकता हूं?\n\n" +
@@ -225,10 +238,32 @@ const ChatBot: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4 z-50 flex items-end flex-col space-y-4">
+      {/* Welcome Popup Bubble */}
+      {showWelcome && !isOpen && (
+        <div className="animate-fade-in-up bg-white dark:bg-gray-800 text-gray-800 dark:text-gray-100 p-4 rounded-lg shadow-xl max-w-[250px] mb-2 relative border border-gray-100 dark:border-gray-700">
+          <button
+            onClick={(e) => { e.stopPropagation(); setShowWelcome(false); }}
+            className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+          >
+            <X size={14} />
+          </button>
+          <div onClick={() => setIsOpen(true)} className="cursor-pointer">
+            <p className="text-sm font-medium mb-1">
+              {language === 'hi' ? 'नमस्ते! क्या मैं मदद कर सकता हूँ?' : 'Hi! Need legal help?'}
+            </p>
+            <p className="text-xs text-gray-500 dark:text-gray-400">
+              {language === 'hi' ? 'मुझसे पूछें...' : 'Ask me about property rights...'}
+            </p>
+          </div>
+          {/* Tail for bubble */}
+          <div className="absolute -bottom-2 right-12 md:right-8 w-4 h-4 bg-white dark:bg-gray-800 transform rotate-45 border-b border-r border-gray-100 dark:border-gray-700"></div>
+        </div>
+      )}
+
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="bg-nayaysetu text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-nayaysetu/90 transition-colors"
+        className="bg-nayaysetu text-white p-3 md:p-4 rounded-full shadow-lg hover:bg-nayaysetu/90 transition-colors transform hover:scale-105 active:scale-95"
         aria-label={isOpen ? "Close Chat Assistant" : "Open Chat Assistant"}
         aria-expanded={isOpen}
       >
@@ -236,7 +271,7 @@ const ChatBot: React.FC = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[350px] md:w-96 bg-white rounded-lg shadow-xl overflow-hidden max-h-[80vh] flex flex-col">
+        <div className="absolute bottom-16 right-0 w-[calc(100vw-2rem)] sm:w-[350px] md:w-96 bg-white rounded-lg shadow-xl overflow-hidden max-h-[80vh] flex flex-col border border-gray-200 dark:border-gray-700">
           <div className="bg-nayaysetu p-3 md:p-4 text-white">
             <h3 className="text-base md:text-lg font-semibold">
               {language === 'hi' ? 'कानूनी सहायक' : 'Legal Assistant'}
