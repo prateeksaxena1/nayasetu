@@ -54,7 +54,7 @@ const Header: React.FC = () => {
 
   return (
     <>
-      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
+      <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-bg-default/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-5'}`}>
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex justify-between items-center">
             {/* Logo */}
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
                 alt="Nayaysetu Logo"
                 className="h-16 w-auto rounded-lg shadow-md"
               />
-              <span className={`font-poppins font-semibold text-2xl tracking-[0.2em] ${isScrolled ? 'text-nayaysetu' : 'text-white'}`}>
+              <span className={`font-poppins font-semibold text-2xl tracking-[0.2em] ${isScrolled ? 'text-primary' : 'text-text-inverted'}`}>
                 NYAYASETU
               </span>
             </Link>
@@ -77,20 +77,20 @@ const Header: React.FC = () => {
                     {item.submenu ? (
                       <div className="flex items-center cursor-pointer">
                         <span
-                          className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-nayaysetu hover:text-nayaysetu-gold' : 'text-white hover:text-nayaysetu-gold'}`}
+                          className={`font-medium transition-colors duration-300 ${isScrolled ? 'text-primary hover:text-accent' : 'text-text-inverted hover:text-accent'}`}
                           onClick={() => toggleSubmenu(item.name)}
                         >
                           {item.name}
                         </span>
-                        <ChevronDown className={`ml-1 w-4 h-4 transition-colors duration-300 ${isScrolled ? 'text-nayaysetu' : 'text-white'}`} />
+                        <ChevronDown className={`ml-1 w-4 h-4 transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-text-inverted'}`} />
 
-                        <div className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg overflow-hidden transform scale-0 group-hover:scale-100 transition-transform origin-top-left z-50">
+                        <div className="absolute top-full left-0 mt-2 w-48 bg-bg-default rounded-md shadow-lg overflow-hidden transform scale-0 group-hover:scale-100 transition-transform origin-top-left z-50">
                           <ul>
                             {item.submenu.map((subItem, subIndex) => (
                               <li key={subIndex}>
                                 <Link
                                   to={subItem.link}
-                                  className="block px-4 py-2 text-sm text-nayaysetu hover:bg-nayaysetu hover:text-white"
+                                  className="block px-4 py-2 text-sm text-primary hover:bg-primary hover:text-text-inverted"
                                 >
                                   {subItem.name}
                                 </Link>
@@ -103,9 +103,9 @@ const Header: React.FC = () => {
                       <Link
                         to={item.link}
                         className={`font-medium transition-colors duration-300 ${isScrolled
-                          ? 'text-nayaysetu hover:text-nayaysetu-gold'
-                          : 'text-white hover:text-nayaysetu-gold'
-                          } ${location.pathname === item.link ? 'text-nayaysetu-gold font-semibold' : ''}`}
+                          ? 'text-primary hover:text-accent'
+                          : 'text-text-inverted hover:text-accent'
+                          } ${location.pathname === item.link ? 'text-accent font-semibold' : ''}`}
                       >
                         {item.name}
                       </Link>
@@ -126,9 +126,9 @@ const Header: React.FC = () => {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? (
-                <X className={`w-6 h-6 ${isScrolled ? 'text-nayaysetu' : 'text-white'}`} />
+                <X className={`w-6 h-6 ${isScrolled ? 'text-primary' : 'text-text-inverted'}`} />
               ) : (
-                <Menu className={`w-6 h-6 ${isScrolled ? 'text-nayaysetu' : 'text-white'}`} />
+                <Menu className={`w-6 h-6 ${isScrolled ? 'text-primary' : 'text-text-inverted'}`} />
               )}
             </button>
           </div>

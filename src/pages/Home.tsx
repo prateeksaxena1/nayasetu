@@ -125,7 +125,7 @@ const Home: React.FC = () => {
       </section >
 
       {/* Persona Strip - Mobile Friendly Scrollable */}
-      <div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 sticky top-0 md:relative z-30 shadow-sm md:shadow-none">
+      <div className="bg-bg-default dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 md:relative z-30 shadow-sm md:shadow-none">
         <div className="container mx-auto px-4 py-4 md:py-6">
           <div className="flex flex-nowrap md:flex-wrap gap-3 overflow-x-auto pb-2 md:pb-0 md:justify-center no-scrollbar">
             {[
@@ -142,8 +142,8 @@ const Home: React.FC = () => {
                   setActivePersona(persona.id as any);
                 }}
                 className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all whitespace-nowrap border ${activePersona === persona.id
-                  ? 'bg-nayaysetu text-white border-nayaysetu shadow-md'
-                  : 'bg-gray-50 text-gray-700 border-gray-200 hover:border-nayaysetu hover:text-nayaysetu'
+                  ? 'bg-primary text-text-inverted border-primary shadow-md'
+                  : 'bg-bg-muted text-text-default border-gray-200 hover:border-primary hover:text-primary'
                   }`}
               >
                 <span className="mr-2">{persona.icon}</span>
@@ -157,50 +157,50 @@ const Home: React.FC = () => {
       <TrustStrip />
 
       {/* Who We Help Section */}
-      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section className="py-24 bg-bg-default dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">{t('whoWeHelp.title')}</h2>
-            <div className="w-24 h-1 bg-nayaysetu-gold mx-auto rounded-full"></div>
+            <h2 className="text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins">{t('whoWeHelp.title')}</h2>
+            <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
           </FadeIn>
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
                 <HeartHandshake className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Widows Denied Share</h3>
+                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Widows Denied Share</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Legal support for claiming rights in husbands' ancestral property.</p>
               </div>
             </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
                 <Users className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Married Daughters</h3>
+                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Married Daughters</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Securing equal coparcenary rights in father's HUF property.</p>
               </div>
             </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
                 <Plane className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">NRI Heirs</h3>
+                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">NRI Heirs</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Managing inheritance disputes and possession remotely.</p>
               </div>
             </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-nayaysetu/5 dark:bg-nayaysetu/20 rounded-full text-nayaysetu dark:text-nayaysetu-gold">
+            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
                 <Sprout className="w-8 h-8" />
               </div>
               <div>
-                <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-1">Farmers & Landowners</h3>
+                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Farmers & Landowners</h3>
                 <p className="text-gray-600 dark:text-gray-400 text-sm">Resolving partition suits for agricultural land and revenue records.</p>
               </div>
             </StaggerItem>
@@ -209,31 +209,31 @@ const Home: React.FC = () => {
       </section >
 
       {/* Track Record Section */}
-      <section id="track-record" className="py-24 bg-gray-50 dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
+      <section id="track-record" className="py-24 bg-bg-muted dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">Our Track Record</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins">Our Track Record</h2>
+            <p className="text-xl text-text-muted dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
               We take pride in our proven track record of helping clients achieve favorable outcomes through strategic legal counsel.
             </p>
           </div>
 
           <div className="max-w-6xl mx-auto">
             <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" staggerDelay={0.1}>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">93%</div>
+              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">93%</div>
                 <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Success Rate</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">500+</div>
+              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">500+</div>
                 <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Clients Helped</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">100+</div>
+              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">100+</div>
                 <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Disputes Resolved</div>
               </StaggerItem>
-              <StaggerItem className="bg-white dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-nayaysetu transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-nayaysetu dark:text-white mb-3">15+</div>
+              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
+                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">15+</div>
                 <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Landmark Judgments</div>
               </StaggerItem>
             </StaggerChildren>
@@ -248,10 +248,10 @@ const Home: React.FC = () => {
       </section>
 
       {/* Practice Areas */}
-      <section className="py-24 bg-white dark:bg-gray-800">
+      <section className="py-24 bg-bg-default dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">{t('practiceAreas.title')}</h2>
+            <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">{t('practiceAreas.title')}</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               {t('practiceAreas.subtitle')}
             </p>
@@ -274,13 +274,13 @@ const Home: React.FC = () => {
       </section>
 
       {/* Common Questions (FAQ) Section */}
-      <section id="common-questions" className="py-24 bg-gray-50 dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
+      <section id="common-questions" className="py-24 bg-bg-muted dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-12">
-            <span className="inline-block px-4 py-1.5 rounded-full bg-nayaysetu/10 text-nayaysetu font-bold text-sm mb-4 tracking-wide uppercase">
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-sm mb-4 tracking-wide uppercase">
               Common Questions
             </span>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 font-poppins">
+            <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins">
               Questions families often ask us
             </h2>
             <div className="flex flex-wrap justify-center gap-2 mb-8">
@@ -289,8 +289,8 @@ const Home: React.FC = () => {
                   key={cat}
                   onClick={() => setActivePersona(cat as any)}
                   className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-200 ${activePersona === cat
-                    ? 'bg-nayaysetu text-white shadow-lg transform scale-105'
-                    : 'bg-white dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-600 shadow-sm'
+                    ? 'bg-primary text-text-inverted shadow-lg transform scale-105'
+                    : 'bg-bg-default dark:bg-gray-700 text-text-muted dark:text-gray-300 hover:bg-bg-muted dark:hover:bg-gray-600 shadow-sm'
                     }`}
                 >
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -308,13 +308,13 @@ const Home: React.FC = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-nayaysetu to-transparent opacity-50"></div>
 
               <div className="transform transition-transform duration-300 group-hover:-translate-y-1">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-nayaysetu/10 dark:bg-nayaysetu/20 text-nayaysetu mb-4">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 dark:bg-primary/20 text-primary mb-4">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                   </svg>
                 </div>
 
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-primary dark:text-text-inverted mb-2">
                   Can't find your question?
                 </h3>
                 <p className="text-gray-500 dark:text-gray-300 mb-6">
@@ -336,11 +336,11 @@ const Home: React.FC = () => {
       </section>
 
       {/* Case Studies */}
-      < section className="py-20 bg-gray-50 dark:bg-gray-900" >
+      < section className="py-20 bg-bg-muted dark:bg-bg-dark" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Featured Case Studies</h2>
+              <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">Featured Case Studies</h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
                 Explore some case studies and get to know how they overcome these challenges.
               </p>
@@ -348,7 +348,7 @@ const Home: React.FC = () => {
             <FadeIn direction="left" delay={0.2}>
               <Link
                 to="/case-studies"
-                className="text-nayaysetu font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+                className="text-primary font-medium inline-flex items-center hover:text-accent mt-4 md:mt-0"
               >
                 View All Case Studies
                 <ArrowRight className="w-4 h-4 ml-1" />
@@ -367,7 +367,7 @@ const Home: React.FC = () => {
       </section >
 
       {/* Why Choose Us */}
-      < section className="py-20 bg-nayaysetu text-white" >
+      < section className="py-20 bg-primary text-text-inverted" >
         <div className="container mx-auto px-4">
           <FadeIn direction="down" className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Why Choose Nayaysetu</h2>
@@ -378,7 +378,7 @@ const Home: React.FC = () => {
 
           <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-accent text-white">
                 <Award className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Inheritance Specialists</h3>
@@ -388,7 +388,7 @@ const Home: React.FC = () => {
             </StaggerItem>
 
             <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
+              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-accent text-white">
                 <Users className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Family Harmony</h3>
@@ -425,10 +425,10 @@ const Home: React.FC = () => {
       </section >
 
       {/* Testimonials */}
-      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
+      < section className="py-20 bg-bg-muted dark:bg-gray-800" >
         <div className="container mx-auto px-4">
           <FadeIn direction="up" className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Client Testimonials</h2>
+            <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">Client Testimonials</h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Real stories from families we’ve helped with inheritance and property disputes in India.
             </p>
@@ -445,11 +445,11 @@ const Home: React.FC = () => {
       </section >
 
       {/* Team */}
-      < section className="py-20 bg-white dark:bg-gray-900" >
+      < section className="py-20 bg-bg-default dark:bg-bg-dark" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Meet Our Legal Team</h2>
+              <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">Meet Our Legal Team</h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
                 Our attorneys bring decades of focused experience in inheritance, ancestral property, and family property disputes in India.
               </p>
@@ -457,7 +457,7 @@ const Home: React.FC = () => {
             <FadeIn direction="left" delay={0.2}>
               <Link
                 to="/team"
-                className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+                className="text-primary dark:text-text-inverted font-medium inline-flex items-center hover:text-accent mt-4 md:mt-0"
               >
                 View All Team Members
                 <ArrowRight className="w-4 h-4 ml-1" />
@@ -476,19 +476,19 @@ const Home: React.FC = () => {
       </section >
 
       {/* Resources */}
-      < section className="py-20 bg-gray-50 dark:bg-gray-800" >
+      < section className="py-20 bg-bg-muted dark:bg-bg-dark" >
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-16">
             <FadeIn fullWidth>
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Legal Resources</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl">
+              <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">Legal Resources</h2>
+              <p className="text-xl text-text-muted dark:text-gray-300 max-w-2xl">
                 Access guides, articles, and templates to help you navigate legal challenges.
               </p>
             </FadeIn>
             <FadeIn direction="left" delay={0.2}>
               <Link
                 to="/resources"
-                className="text-nayaysetu dark:text-white font-medium inline-flex items-center hover:text-nayaysetu-gold mt-4 md:mt-0"
+                className="text-primary dark:text-text-inverted font-medium inline-flex items-center hover:text-accent mt-4 md:mt-0"
               >
                 View All Resources
                 <ArrowRight className="w-4 h-4 ml-1" />
