@@ -15,7 +15,7 @@ import { testimonials } from '../data/testimonials';
 import { resources } from '../data/resources';
 import { team } from '../data/team';
 import { practiceAreas } from '../data/practiceAreas';
-import { ArrowRight, Award, ChevronDown, HeartHandshake, Sprout, Plane, Users } from 'lucide-react';
+import { ArrowRight, Award, HeartHandshake, Sprout, Plane, Users } from 'lucide-react';
 import FadeIn from '../components/Animations/FadeIn';
 import StaggerChildren, { StaggerItem } from '../components/Animations/StaggerChildren';
 
@@ -70,89 +70,118 @@ const Home: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: 'url(https://images.pexels.com/photos/5668481/pexels-photo-5668481.jpeg)',
-            filter: 'brightness(0.4)'
-          }}
-        ></div>
-        <div className="relative container mx-auto px-4 text-center">
-          <FadeIn direction="down" duration={0.8}>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight whitespace-pre-line tracking-tight">
-              {t('hero.title')}
-            </h1>
-          </FadeIn>
+      <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-bg-muted dark:bg-bg-dark">
+        {/* Abstract Background Elements */}
+        <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl opacity-50"></div>
+        <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-50"></div>
 
-          <FadeIn direction="up" delay={0.2} duration={0.8}>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto font-light leading-relaxed">
-              {t('hero.subtitle')}
-            </p>
-          </FadeIn>
+        <div className="container mx-auto px-4 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
 
-          <FadeIn direction="up" delay={0.4} duration={0.6}>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button
-                size="large"
-                className="w-full sm:w-auto px-8 py-4 text-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1"
-                onClick={() => setShowConsultationForm(true)}
-              >
-                {t('hero.consultation')}
-              </Button>
-              <Button
-                variant="outlined"
-                size="large"
-                className="w-full sm:w-auto px-8 py-4 text-lg border-2 border-white text-white hover:bg-white hover:text-nayaysetu hover:border-white transition-all transform hover:-translate-y-1"
-                onClick={() => {
-                  const expertiseSection = document.getElementById('track-record');
-                  expertiseSection?.scrollIntoView({ behavior: 'smooth' });
-                }}
-              >
-                {t('hero.explore')}
-              </Button>
+            {/* Left Column: Text & Personas */}
+            <div className="space-y-8 text-center lg:text-left">
+              <FadeIn direction="up" duration={0.6}>
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-accent/10 text-accent font-medium text-sm mb-6 border border-accent/20">
+                  <span className="w-2 h-2 rounded-full bg-accent mr-2"></span>
+                  Rated #1 Indian Inheritance Firm
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary dark:text-text-inverted leading-[1.15] mb-6 font-poppins">
+                  Protect Your Family's <span className="text-accent relative inline-block">
+                    Legacy
+                    <svg className="absolute w-full h-3 -bottom-1 left-0 text-accent opacity-30" viewBox="0 0 100 10" preserveAspectRatio="none">
+                      <path d="M0 5 Q 50 10 100 5 L 100 10 L 0 10 Z" fill="currentColor" />
+                    </svg>
+                  </span> in Property Disputes
+                </h1>
+                <p className="text-lg md:text-xl text-text-muted dark:text-gray-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                  We specialize in simplifying complex Indian inheritance laws to secure your rightful share, prevent family feuds, and deliver peace of mind.
+                </p>
+              </FadeIn>
+
+              <FadeIn direction="up" delay={0.2} duration={0.6}>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-10">
+                  <Button
+                    size="large"
+                    className="shadow-lg hover:shadow-xl hover:scale-105"
+                    onClick={() => setShowConsultationForm(true)}
+                  >
+                    {t('hero.consultation')}
+                  </Button>
+                  <Button
+                    variant="outlined"
+                    size="large"
+                    onClick={() => {
+                      const expertiseSection = document.getElementById('track-record');
+                      expertiseSection?.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                  >
+                    {t('hero.explore')}
+                  </Button>
+                </div>
+
+                {/* Integrated Persona Chips */}
+                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm inline-block w-full">
+                  <p className="text-sm font-semibold text-text-muted dark:text-gray-400 mb-3 uppercase tracking-wider text-left pl-1">
+                    I am a...
+                  </p>
+                  <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
+                    {[
+                      { id: 'widow', label: 'Widow / Wife', icon: '👩' },
+                      { id: 'daughter', label: 'Daughter / Sister', icon: '👧' },
+                      { id: 'nri', label: 'NRI Heir', icon: '✈️' },
+                      { id: 'farmer', label: 'Farmer / Land Owner', icon: '🌾' },
+                    ].map((persona) => (
+                      <button
+                        key={persona.id}
+                        onClick={() => {
+                          const faqSection = document.getElementById('common-questions');
+                          faqSection?.scrollIntoView({ behavior: 'smooth' });
+                          setActivePersona(persona.id as any);
+                        }}
+                        className={`group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${activePersona === persona.id
+                          ? 'bg-primary text-text-inverted border-primary shadow-md'
+                          : 'bg-bg-muted hover:bg-white text-text-default border-transparent hover:border-accent/50 hover:shadow-sm'
+                          }`}
+                      >
+                        <span className="mr-2 group-hover:scale-110 transition-transform">{persona.icon}</span>
+                        {persona.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </FadeIn>
             </div>
-            <p className="mt-8 text-sm text-gray-300 font-medium tracking-wider uppercase opacity-80">
-              {t('trust.heroDisclaimer')}
-            </p>
-          </FadeIn>
-        </div>
-        <div className="absolute bottom-10 left-0 right-0 flex justify-center">
-          <div className="animate-bounce">
-            <ChevronDown className="w-8 h-8 text-white/50" />
+
+            {/* Right Column: Visual */}
+            <FadeIn direction="left" delay={0.3} duration={0.8} className="relative hidden lg:block">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white dark:border-gray-700 transform rotate-2 hover:rotate-0 transition-all duration-500">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10"></div>
+                <img
+                  src="https://images.pexels.com/photos/4584444/pexels-photo-4584444.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                  alt="Indian multigenerational family"
+                  className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute bottom-6 left-6 z-20 text-white">
+                  <p className="font-bold text-lg">Safeguarding Relationships</p>
+                  <p className="text-sm opacity-90">Beyond just property distribution</p>
+                </div>
+              </div>
+
+              {/* Floating Stats Card */}
+              <div className="absolute -bottom-8 -left-8 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-xl border border-gray-100 dark:border-gray-700 flex items-center gap-4 animate-float">
+                <div className="bg-green-100 dark:bg-green-900/30 p-3 rounded-full text-green-600 dark:text-green-400">
+                  <HeartHandshake className="w-6 h-6" />
+                </div>
+                <div>
+                  <p className="text-2xl font-bold text-primary dark:text-white">500+</p>
+                  <p className="text-xs text-text-muted">Families Helped</p>
+                </div>
+              </div>
+            </FadeIn>
+
           </div>
         </div>
       </section >
-
-      {/* Persona Strip - Mobile Friendly Scrollable */}
-      <div className="bg-bg-default dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800 sticky top-0 md:relative z-30 shadow-sm md:shadow-none">
-        <div className="container mx-auto px-4 py-4 md:py-6">
-          <div className="flex flex-nowrap md:flex-wrap gap-3 overflow-x-auto pb-2 md:pb-0 md:justify-center no-scrollbar">
-            {[
-              { id: 'widow', label: 'Widow / Wife', icon: '👩' },
-              { id: 'daughter', label: 'Daughter / Sister', icon: '👧' },
-              { id: 'nri', label: 'NRI Heir', icon: '✈️' },
-              { id: 'farmer', label: 'Farmer / Land Owner', icon: '🌾' },
-            ].map((persona) => (
-              <button
-                key={persona.id}
-                onClick={() => {
-                  const faqSection = document.getElementById('common-questions');
-                  faqSection?.scrollIntoView({ behavior: 'smooth' });
-                  setActivePersona(persona.id as any);
-                }}
-                className={`flex-shrink-0 px-5 py-2.5 rounded-full text-sm font-medium transition-all whitespace-nowrap border ${activePersona === persona.id
-                  ? 'bg-primary text-text-inverted border-primary shadow-md'
-                  : 'bg-bg-muted text-text-default border-gray-200 hover:border-primary hover:text-primary'
-                  }`}
-              >
-                <span className="mr-2">{persona.icon}</span>
-                {persona.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <TrustStrip />
 
