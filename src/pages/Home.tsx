@@ -185,99 +185,131 @@ const Home: React.FC = () => {
 
       <TrustStrip />
 
-      {/* Who We Help Section */}
-      <section className="py-24 bg-bg-default dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800">
+      {/* Who We Help Section - 2 Column Layout */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
-          <FadeIn direction="up" className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins">{t('whoWeHelp.title')}</h2>
-            <div className="w-24 h-1 bg-accent mx-auto rounded-full"></div>
-          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            {/* Sticky Content Left */}
+            <div className="lg:col-span-4 lg:sticky lg:top-32">
+              <FadeIn direction="up">
+                <div className="w-12 h-1 bg-accent mb-6 rounded-full"></div>
+                <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins leading-tight">
+                  {t('whoWeHelp.title')}
+                </h2>
+                <p className="text-lg text-text-muted dark:text-gray-400 mb-8 leading-relaxed">
+                  Every family's situation is unique. We provide specialized legal strategies tailored to your specific role in the property dispute.
+                </p>
+                <Button variant="outlined" className="hidden lg:inline-flex" onClick={() => setShowConsultationForm(true)}>
+                  Discuss Your Case
+                </Button>
+              </FadeIn>
+            </div>
 
-          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
-                <HeartHandshake className="w-8 h-8" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Widows Denied Share</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Legal support for claiming rights in husbands' ancestral property.</p>
-              </div>
-            </StaggerItem>
+            {/* Grid Content Right */}
+            <div className="lg:col-span-8">
+              <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                  <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <HeartHandshake className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-xl text-primary dark:text-text-inverted mb-3">Widows Denied Share</h3>
+                  <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Legal support for claiming rights in husbands' ancestral property against in-laws.</p>
+                </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
-                <Users className="w-8 h-8" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Married Daughters</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Securing equal coparcenary rights in father's HUF property.</p>
-              </div>
-            </StaggerItem>
+                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                  <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <Users className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-xl text-primary dark:text-text-inverted mb-3">Married Daughters</h3>
+                  <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Securing equal coparcenary rights in father's HUF property post-2005 amendment.</p>
+                </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
-                <Plane className="w-8 h-8" />
-              </div>
-              <div>
-                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">NRI Heirs</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Managing inheritance disputes and possession remotely.</p>
-              </div>
-            </StaggerItem>
+                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                  <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <Plane className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-xl text-primary dark:text-text-inverted mb-3">NRI Heirs</h3>
+                  <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Managing inheritance disputes, possession, and power of attorney remotely.</p>
+                </StaggerItem>
 
-            <StaggerItem className="flex items-center p-6 bg-bg-default dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
-              <div className="flex-shrink-0 mr-6 p-4 bg-primary/5 dark:bg-primary/20 rounded-full text-primary dark:text-accent">
-                <Sprout className="w-8 h-8" />
+                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                  <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <Sprout className="w-7 h-7" />
+                  </div>
+                  <h3 className="font-bold text-xl text-primary dark:text-text-inverted mb-3">Farmers & Landowners</h3>
+                  <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Resolving partition suits for agricultural land and revenue records.</p>
+                </StaggerItem>
+              </StaggerChildren>
+              <div className="mt-8 lg:hidden">
+                <Button variant="outlined" className="w-full" onClick={() => setShowConsultationForm(true)}>
+                  Discuss Your Case
+                </Button>
               </div>
-              <div>
-                <h3 className="font-bold text-lg text-primary dark:text-text-inverted mb-1">Farmers & Landowners</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-sm">Resolving partition suits for agricultural land and revenue records.</p>
-              </div>
-            </StaggerItem>
-          </StaggerChildren>
+            </div>
+          </div>
         </div>
       </section >
 
-      {/* Track Record Section */}
-      <section id="track-record" className="py-24 bg-bg-muted dark:bg-bg-dark border-b border-gray-100 dark:border-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-primary dark:text-text-inverted mb-6 font-poppins">Our Track Record</h2>
-            <p className="text-xl text-text-muted dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              We take pride in our proven track record of helping clients achieve favorable outcomes through strategic legal counsel.
-            </p>
-          </div>
+      {/* Track Record Section - Dark Theme 2x2 Grid */}
+      <section id="track-record" className="py-24 bg-primary text-white overflow-hidden relative">
+        {/* Background Patterns */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-accent/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-accent/5 rounded-full blur-3xl -ml-40 -mb-40"></div>
 
-          <div className="max-w-6xl mx-auto">
-            <StaggerChildren className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16" staggerDelay={0.1}>
-              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">93%</div>
-                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Success Rate</div>
-              </StaggerItem>
-              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">500+</div>
-                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Clients Helped</div>
-              </StaggerItem>
-              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">100+</div>
-                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Disputes Resolved</div>
-              </StaggerItem>
-              <StaggerItem className="bg-bg-default dark:bg-gray-800 p-8 rounded-xl text-center shadow-lg hover:shadow-xl transition-all border-b-4 border-primary transform hover:-translate-y-1">
-                <div className="text-5xl font-extrabold text-primary dark:text-text-inverted mb-3">15+</div>
-                <div className="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest">Landmark Judgments</div>
-              </StaggerItem>
-            </StaggerChildren>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
-            <FadeIn direction="up" delay={0.4} className="text-center">
-              <Button onClick={() => setShowConsultationForm(true)} size="large" className="shadow-xl hover:shadow-2xl px-10 py-4 text-xl">
-                Book a Free Consultation
-              </Button>
-            </FadeIn>
+            {/* Left Content */}
+            <div className="text-center lg:text-left">
+              <FadeIn direction="up">
+                <h2 className="text-4xl lg:text-5xl font-bold mb-6 font-poppins leading-tight">
+                  Our Track Record Spurred by <span className="text-accent">Success</span>
+                </h2>
+                <p className="text-lg text-gray-300 mb-10 leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  We don't just give advice; we deliver results. Our proven history in high-stakes property disputes speaks for itself.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                  <Button onClick={() => setShowConsultationForm(true)} size="large" className="bg-accent text-primary hover:bg-white hover:text-primary border-none shadow-xl">
+                    Get Free Advice
+                  </Button>
+                </div>
+              </FadeIn>
+            </div>
+
+            {/* Right Grid Stats */}
+            <div>
+              <StaggerChildren className="grid grid-cols-2 gap-4 sm:gap-6">
+                <StaggerItem className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform origin-left text-accent">93%</div>
+                  <div className="h-0.5 w-12 bg-accent/50 mb-3"></div>
+                  <div className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-widest">Success Rate</div>
+                </StaggerItem>
+
+                <StaggerItem className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform origin-left">500+</div>
+                  <div className="h-0.5 w-12 bg-white/30 mb-3"></div>
+                  <div className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-widest">Clients Helped</div>
+                </StaggerItem>
+
+                <StaggerItem className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform origin-left">100+</div>
+                  <div className="h-0.5 w-12 bg-white/30 mb-3"></div>
+                  <div className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-widest">Disputes Resolved</div>
+                </StaggerItem>
+
+                <StaggerItem className="bg-white/10 backdrop-blur-sm p-6 sm:p-8 rounded-2xl border border-white/10 hover:bg-white/15 transition-all duration-300 group">
+                  <div className="text-4xl sm:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform origin-left">15+</div>
+                  <div className="h-0.5 w-12 bg-white/30 mb-3"></div>
+                  <div className="text-xs sm:text-sm font-bold text-gray-300 uppercase tracking-widest">Landmark Judgments</div>
+                </StaggerItem>
+              </StaggerChildren>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Practice Areas */}
-      <section className="py-24 bg-bg-default dark:bg-gray-800">
+      <section className="py-24 bg-bg-muted dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-primary dark:text-text-inverted mb-4">{t('practiceAreas.title')}</h2>
@@ -395,61 +427,60 @@ const Home: React.FC = () => {
         </div>
       </section >
 
-      {/* Why Choose Us */}
-      < section className="py-20 bg-primary text-text-inverted" >
+      {/* Why Choose Us - Split Layout */}
+      <section className="py-24 bg-white dark:bg-gray-900 border-t border-gray-100 dark:border-gray-800">
         <div className="container mx-auto px-4">
-          <FadeIn direction="down" className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Why Choose Nayaysetu</h2>
-            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
-              We understand that property disputes are not just legal battles—they are family matters. We handle them with expertise and empathy.
-            </p>
-          </FadeIn>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-          <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-accent text-white">
-                <Award className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Inheritance Specialists</h3>
-              <p className="text-gray-200">
-                Unlike general firms, we focus exclusively on property and succession laws. We know every nuance of the Hindu Succession Act.
-              </p>
-            </StaggerItem>
+            {/* Left: Icon Grid */}
+            <div className="order-2 lg:order-1">
+              <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <StaggerItem className="p-6 bg-bg-muted dark:bg-gray-800 rounded-xl border-l-4 border-accent hover:shadow-md transition-shadow">
+                  <Award className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Inheritance Specialists</h3>
+                  <p className="text-sm text-text-muted dark:text-gray-400">Exclusive focus on property & succession laws, knowing every nuance of the Hindu Succession Act.</p>
+                </StaggerItem>
 
-            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-accent text-white">
-                <Users className="w-8 h-8" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Family Harmony</h3>
-              <p className="text-gray-200">
-                We prioritize mediation and family settlements to resolve disputes amicably, saving you years of court battles and stress.
-              </p>
-            </StaggerItem>
+                <StaggerItem className="p-6 bg-bg-muted dark:bg-gray-800 rounded-xl border-l-4 border-accent hover:shadow-md transition-shadow">
+                  <Users className="w-8 h-8 text-primary mb-4" />
+                  <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Family Harmony</h3>
+                  <p className="text-sm text-text-muted dark:text-gray-400">Prioritizing mediation and family settlements to resolve disputes amicably without court battles.</p>
+                </StaggerItem>
 
-            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Clear Rights</h3>
-              <p className="text-gray-200">
-                Whether you are a daughter, widow, or NRI, we explain your legal rights in simple language so you can make informed decisions.
-              </p>
-            </StaggerItem>
+                <StaggerItem className="p-6 bg-bg-muted dark:bg-gray-800 rounded-xl border-l-4 border-accent hover:shadow-md transition-shadow">
+                  <svg className="w-8 h-8 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Clear Rights</h3>
+                  <p className="text-sm text-text-muted dark:text-gray-400">Explaining legal rights in simple language so you can make informed decisions.</p>
+                </StaggerItem>
 
-            <StaggerItem className="text-center p-6 rounded-lg bg-white/10">
-              <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-nayaysetu-gold text-white">
-                <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Time-Efficient</h3>
-              <p className="text-gray-200">
-                Property cases can drag on for decades. Our strategic approach is designed to reach a conclusion—settlement or decree—faster.
-              </p>
-            </StaggerItem>
-          </StaggerChildren>
+                <StaggerItem className="p-6 bg-bg-muted dark:bg-gray-800 rounded-xl border-l-4 border-accent hover:shadow-md transition-shadow">
+                  <svg className="w-8 h-8 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                  </svg>
+                  <h3 className="text-lg font-bold text-primary dark:text-white mb-2">Time-Efficient</h3>
+                  <p className="text-sm text-text-muted dark:text-gray-400">Strategic approach designed to conclude settlement or decree faster.</p>
+                </StaggerItem>
+              </StaggerChildren>
+            </div>
+
+            {/* Right: Text Content */}
+            <div className="order-1 lg:order-2 text-center lg:text-left">
+              <FadeIn direction="up">
+                <h2 className="text-3xl md:text-4xl font-bold text-primary dark:text-text-inverted mb-6 leading-tight">
+                  Why Families Trust <br /> <span className="text-accent">Nayaysetu</span>
+                </h2>
+                <p className="text-lg text-text-muted dark:text-gray-300 mb-8 leading-relaxed">
+                  Property disputes aren't just legal battles—they are family matters. We handle them with expertise of a large firm and the empathy of a family counselor.
+                </p>
+                <Button size="large" onClick={() => setShowConsultationForm(true)}>
+                  Speak to an Expert
+                </Button>
+              </FadeIn>
+            </div>
+
+          </div>
         </div>
       </section >
 
