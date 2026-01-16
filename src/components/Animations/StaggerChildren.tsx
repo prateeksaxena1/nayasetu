@@ -1,8 +1,8 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { ReactNode } from 'react';
+import { motion, HTMLMotionProps } from 'framer-motion';
 
 interface StaggerChildrenProps {
-    children: React.ReactNode;
+    children: ReactNode;
     staggerDelay?: number;
     className?: string;
 }
@@ -47,9 +47,18 @@ const StaggerChildren: React.FC<StaggerChildrenProps> = ({
     );
 };
 
-export const StaggerItem: React.FC<{ children: React.ReactNode; className?: string }> = ({ children, className = '' }) => {
+interface StaggerItemProps extends HTMLMotionProps<'div'> {
+    children: ReactNode;
+    className?: string;
+}
+
+export const StaggerItem: React.FC<StaggerItemProps> = ({ children, className = '', ...props }) => {
     return (
-        <motion.div variants={itemVariants} className={className}>
+        <motion.div
+            variants={itemVariants}
+            className={className}
+            {...props}
+        >
             {children}
         </motion.div>
     );

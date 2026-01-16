@@ -119,36 +119,7 @@ const Home: React.FC = () => {
                   </Button>
                 </div>
 
-                {/* Integrated Persona Chips */}
-                <div className="bg-white dark:bg-gray-800/50 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 shadow-sm inline-block w-full">
-                  <p className="text-sm font-semibold text-text-muted dark:text-gray-400 mb-3 uppercase tracking-wider text-left pl-1">
-                    I am a...
-                  </p>
-                  <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                    {[
-                      { id: 'widow', label: 'Widow / Wife', icon: '👩' },
-                      { id: 'daughter', label: 'Daughter / Sister', icon: '👧' },
-                      { id: 'nri', label: 'NRI Heir', icon: '✈️' },
-                      { id: 'farmer', label: 'Farmer / Land Owner', icon: '🌾' },
-                    ].map((persona) => (
-                      <button
-                        key={persona.id}
-                        onClick={() => {
-                          const faqSection = document.getElementById('common-questions');
-                          faqSection?.scrollIntoView({ behavior: 'smooth' });
-                          setActivePersona(persona.id as any);
-                        }}
-                        className={`group flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 border ${activePersona === persona.id
-                          ? 'bg-primary text-text-inverted border-primary shadow-md'
-                          : 'bg-bg-muted hover:bg-white text-text-default border-transparent hover:border-accent/50 hover:shadow-sm'
-                          }`}
-                      >
-                        <span className="mr-2 group-hover:scale-110 transition-transform">{persona.icon}</span>
-                        {persona.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                {/* Integrated Persona Chips - REMOVED (Moved to dedicated strip below) */}
               </FadeIn>
             </div>
 
@@ -180,8 +151,48 @@ const Home: React.FC = () => {
             </FadeIn>
 
           </div>
-        </div>
+        </div >
       </section >
+
+      {/* Persona Strip - "Choose Your Situation" */}
+      < div className="bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 relative z-20 shadow-sm" >
+        <div className="container mx-auto px-4 py-6">
+          <p className="text-center text-sm font-semibold text-text-muted dark:text-gray-400 mb-4 uppercase tracking-wider">
+            Choose your situation to understand your rights
+          </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { id: 'widow-rights', label: 'Widow / Wife', icon: '👩' },
+              { id: 'daughter-rights', label: 'Daughter / Sister', icon: '👧' },
+              { id: 'nri-rights', label: 'NRI Heir', icon: '✈️' },
+              { id: 'farmer-rights', label: 'Farmer / Land Owner', icon: '🌾' },
+            ].map((persona) => (
+              <button
+                key={persona.id}
+                onClick={() => {
+                  const element = document.getElementById(persona.id);
+                  if (element) {
+                    const offset = 100; // Adjust for sticky header or padding
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = element.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+
+                    window.scrollTo({
+                      top: offsetPosition,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className="flex items-center px-6 py-3 rounded-full bg-bg-muted dark:bg-gray-800 hover:bg-white hover:shadow-md hover:scale-105 transition-all duration-200 border-2 border-transparent hover:border-accent group"
+              >
+                <span className="mr-2 text-xl group-hover:animate-pulse">{persona.icon}</span>
+                <span className="font-medium text-primary dark:text-white">{persona.label}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </div >
 
       <TrustStrip />
 
@@ -208,7 +219,7 @@ const Home: React.FC = () => {
             {/* Grid Content Right */}
             <div className="lg:col-span-8">
               <StaggerChildren className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                <StaggerItem id="widow-rights" className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group scroll-mt-32">
                   <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <HeartHandshake className="w-7 h-7" />
                   </div>
@@ -216,7 +227,7 @@ const Home: React.FC = () => {
                   <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Legal support for claiming rights in husbands' ancestral property against in-laws.</p>
                 </StaggerItem>
 
-                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                <StaggerItem id="daughter-rights" className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group scroll-mt-32">
                   <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <Users className="w-7 h-7" />
                   </div>
@@ -224,7 +235,7 @@ const Home: React.FC = () => {
                   <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Securing equal coparcenary rights in father's HUF property post-2005 amendment.</p>
                 </StaggerItem>
 
-                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                <StaggerItem id="nri-rights" className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group scroll-mt-32">
                   <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <Plane className="w-7 h-7" />
                   </div>
@@ -232,7 +243,7 @@ const Home: React.FC = () => {
                   <p className="text-text-muted dark:text-gray-400 text-sm leading-relaxed">Managing inheritance disputes, possession, and power of attorney remotely.</p>
                 </StaggerItem>
 
-                <StaggerItem className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group">
+                <StaggerItem id="farmer-rights" className="flex flex-col p-8 bg-bg-muted dark:bg-gray-800 rounded-2xl hover:bg-white hover:shadow-xl transition-all duration-300 border border-transparent hover:border-gray-100 dark:hover:border-gray-700 group scroll-mt-32">
                   <div className="w-14 h-14 mb-6 rounded-xl bg-primary/5 dark:bg-primary/20 text-primary dark:text-accent flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors duration-300">
                     <Sprout className="w-7 h-7" />
                   </div>
