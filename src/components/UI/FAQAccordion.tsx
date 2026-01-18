@@ -37,6 +37,9 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ faqs }) => {
 
             {faqs.map((faq) => {
                 const isOpen = openId === faq.id;
+                const buttonId = `faq-btn-${faq.id}`;
+                const contentId = `faq-content-${faq.id}`;
+
                 return (
                     <div
                         key={faq.id}
@@ -45,20 +48,28 @@ const FAQAccordion: React.FC<FAQAccordionProps> = ({ faqs }) => {
                             : 'bg-white border-gray-200 hover:border-nayaysetu/20'
                             }`}
                     >
-                        <button
-                            onClick={() => toggleFAQ(faq.id)}
-                            className="w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none group"
-                            aria-expanded={isOpen}
-                        >
-                            <span className={`font-semibold text-lg pr-4 transition-colors duration-200 ${isOpen ? 'text-nayaysetu' : 'text-gray-800 group-hover:text-nayaysetu/80'}`}>
-                                {faq.question}
-                            </span>
-                            <ChevronDown
-                                className={`w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out flex-shrink-0 ${isOpen ? 'rotate-180 text-nayaysetu' : ''}`}
-                            />
-                        </button>
+                        <h3>
+                            <button
+                                id={buttonId}
+                                onClick={() => toggleFAQ(faq.id)}
+                                className="w-full text-left px-6 py-4 flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-inset focus:ring-nayaysetu/50 group"
+                                aria-expanded={isOpen}
+                                aria-controls={contentId}
+                            >
+                                <span className={`font-semibold text-lg pr-4 transition-colors duration-200 ${isOpen ? 'text-nayaysetu' : 'text-gray-800 group-hover:text-nayaysetu/80'}`}>
+                                    {faq.question}
+                                </span>
+                                <ChevronDown
+                                    className={`w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out flex-shrink-0 ${isOpen ? 'rotate-180 text-nayaysetu' : ''}`}
+                                    aria-hidden="true"
+                                />
+                            </button>
+                        </h3>
 
                         <div
+                            id={contentId}
+                            role="region"
+                            aria-labelledby={buttonId}
                             className={`transition-all duration-500 ease-in-out overflow-hidden ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'
                                 }`}
                         >

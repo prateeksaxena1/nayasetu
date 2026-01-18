@@ -7,77 +7,83 @@ export interface FAQ {
 }
 
 export const faqs: FAQ[] = [
-    // Daughter / Women
+    // Daughter (Women's Rights, Brother's Name, No Will)
     {
         id: 'd1',
-        question: "Do married daughters have rights in father's property?",
-        answer: "Yes. Since the 2005 amendment to the Hindu Succession Act, daughters (married or unmarried) are 'coparceners' by birth, meaning they have the exact same rights and liabilities as sons in ancestral property.",
+        question: "My father passed away without a Will. Do I get a share?",
+        answer: "Yes. Under the Hindu Succession Act, daughters are 'Class I heirs' equal to sons. If there is no Will (intestate), the property is divided equally among all children and the widow.",
         category: 'daughter'
     },
     {
         id: 'd2',
-        question: "Can my brother deny my share if I am married?",
-        answer: "No. Your marital status does not affect your right to inheritance. You can claim partition at any time, and your share is equal to that of your brothers.",
+        question: "Can my brother deny my share because I am married?",
+        answer: "No. Marriage does not change your rights. Since the 2005 amendment, daughters remain coparceners (joint owners) for life. Your brother cannot exclude you.",
         category: 'daughter'
     },
     {
         id: 'd3',
-        question: "What if my father left a Will excluding me?",
-        answer: "If the property is self-acquired by your father, he can Will it to anyone. However, for ancestral property, he cannot exclude you from your birthright share through a Will.",
+        question: "The property is in my uncle's or brother's name, but it's ancestral. Can I claim it?",
+        answer: "Yes, if it is ancestral (undivided) property, you have a birthright share regardless of whose name appears on the revenue records. You can file a suit for partition.",
+        category: 'daughter'
+    },
+    {
+        id: 'd4',
+        question: "My father left a Will giving everything to my brother. Can I challenge it?",
+        answer: "It depends. If the property was self-acquired by your father, the Will is valid. If it was ancestral family property, he cannot Will away your share. You can also challenge a Will if it was made under pressure.",
         category: 'daughter'
     },
 
-    // Widow / Wife
+    // Widow (Women's Rights, No Will, In-laws)
     {
         id: 'w1',
-        question: "What are a widow's rights in her husband's property?",
-        answer: "A widow is a 'Class I heir'. If your husband died without a Will (intestate), you are entitled to an equal share of his property along with his children and his mother.",
+        question: "My husband died without a Will. What are my rights?",
+        answer: "As a widow, you are a 'Class I heir'. You inherit an equal share of your husband's property along with his children and his mother. You cannot be excluded.",
         category: 'widow'
     },
     {
         id: 'w2',
-        question: "Can my in-laws evict me from the house?",
-        answer: "Generally, no. You have a right to residence in the shared household. If the property belonged to your husband, you are a legal heir and partial owner.",
+        question: "Can my in-laws evict me from our shared home?",
+        answer: "No. Under the Domestic Violence Act and senior citizen judgments, a widow has a 'right to residence' in the shared household, regardless of whether she owns it.",
         category: 'widow'
     },
     {
         id: 'w3',
-        question: "What happens to the property if there is no Will?",
-        answer: "Ideally, it is divided equally among Class I heirs (Widow, Children, Mother). If no Class I heirs exist, it goes to Class II heirs (Father, Siblings, etc.).",
+        question: "Does my husband's share in his family property come to me?",
+        answer: "Yes. If your husband had a share in ancestral property, that share devolves upon you and his children after his death, not back to his brothers/parents.",
         category: 'widow'
     },
 
-    // NRI
+    // NRI (POA, Remote Management)
     {
         id: 'n1',
-        question: "Can NRIs inherit agricultural land in India?",
-        answer: "Yes, NRIs can inherit agricultural land and farmhouse property. However, there are restrictions on purchasing agricultural land unless you are an agriculturist.",
+        question: "I live abroad. Can I claim my share in family property without travelling?",
+        answer: "Yes. You can manage the entire partition suit through a 'Special Power of Attorney' (POA) given to a trusted relative or lawyer in India. You only need to be present for evidence if strictly required.",
         category: 'nri'
     },
     {
         id: 'n2',
-        question: "How can I manage property disputes remotely?",
-        answer: "You can execute a Special Power of Attorney (POA) to someone you trust to handle court appearances. However, for property transfer, the POA must be registered.",
+        question: "My siblings are selling the property while I am away. How do I stop them?",
+        answer: "You can file a suit for 'Permanent Injunction' to seek a stay order from the court, preventing any sale or transfer until your share is partitioned.",
         category: 'nri'
     },
     {
         id: 'n3',
-        question: "Is a foreign Will valid in India?",
-        answer: "Yes, but it often needs to go through a 'probate' or 'letters of administration' process in Indian courts to be legally recognized for property transfer.",
+        question: "Is a Will made in the USA/UK valid in India?",
+        answer: "Yes, but it may need to be 'probated' (certified) by an Indian court to be legally effective for transferring immovable property titles here.",
         category: 'nri'
     },
 
-    // Farmer
+    // Farmer (Land, Revenue Records)
     {
         id: 'f1',
-        question: "How do I divide agricultural land among brothers?",
-        answer: "You need to file a suit for partition. Once the court decrees shares, you must apply to the local Tehsildar for 'mutation' of revenue records to reflect separate ownership.",
+        question: "The land is still in my grandfather's name. How do I divide it?",
+        answer: "You must first apply for a 'Warisan' (legal heir) certificate. Then, all legal heirs become joint owners. Any heir can then file for partition to separate their specific share.",
         category: 'farmer'
     },
     {
         id: 'f2',
-        question: "What if the land is still in my grandfather's name?",
-        answer: "You must first get the death certificates of your grandfather and father (if deceased) and apply for a Warisan (legal heir) certificate or mutation to update the land records.",
+        question: "Can I sell my share of agricultural land without my brothers' consent?",
+        answer: "Legally yes, you can sell your undivided share. However, the buyer cannot take specific possession until the land is formally partitioned by metes and bounds.",
         category: 'farmer'
     }
 ];
